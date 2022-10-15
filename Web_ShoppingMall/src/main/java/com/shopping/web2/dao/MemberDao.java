@@ -1,5 +1,5 @@
 package com.shopping.web2.dao;
 
-public class MemberDAO {
+public class MemberDao {
 
 }
