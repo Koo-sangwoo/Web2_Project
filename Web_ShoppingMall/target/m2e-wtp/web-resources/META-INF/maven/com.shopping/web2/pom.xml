@@ -109,6 +109,53 @@
 			<version>1.2</version>
 		</dependency>
 	
+		<!-- html 파일 불러오기 -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>10.1.0</version>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		
+		<!-- jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+		
+		<!-- connection pool -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		
+		<!-- log4j jdbc4 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+		
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+		
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
