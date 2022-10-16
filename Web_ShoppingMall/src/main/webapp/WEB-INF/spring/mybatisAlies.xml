@@ -6,5 +6,7 @@
 	<typeAliases>
 		<typeAlias alias="MemberVO"
 			type="com.shopping.web2.vo.MemberVO" />
+		<typeAlias alias="ProductVO"
+			type="com.shopping.web2.vo.ProductVO" />
 	</typeAliases>
 </configuration>
