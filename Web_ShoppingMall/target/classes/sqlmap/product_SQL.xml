@@ -4,7 +4,7 @@
 <mapper namespace="product">
 
 <select id="list" parameterType="String" resultSets="ProductVO">
-	select * from product id = #{id}
+	select * from product 
 </select>
 
 </mapper>

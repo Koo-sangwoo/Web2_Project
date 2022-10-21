@@ -14,8 +14,8 @@ public class ProductDao {
 	@Autowired
 	private SqlSessionTemplate sqltemplate;
 	
-	public List<MemberVO> list(Map<String, Object> map){
-		return sqltemplate.selectList("product.list",map);
+	public List<MemberVO> list(String productId){
+		return sqltemplate.selectList("product.list",productId);
 	}
 	
 }
