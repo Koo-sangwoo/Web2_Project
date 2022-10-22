@@ -10,8 +10,9 @@
 </head>
 <body>
 	<h1>상품목록</h1>
-	<c:forEach items="productList" var = "data">
-	<p><img alt="" src="./images/${filename}">
+	<c:forEach items="${productlists}" var = "data">
+	<p><img alt="" src="./images/${data.filenamemember}"></p>
+	<p>상품이름: ${data.pname}</p>
 	</c:forEach>
 </body>
 </html>
