@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>장바구니</title>
 </head>
 <script type="text/javascript">
@@ -68,14 +69,14 @@
 								<option>L</option>
 								<option>XL</option>
 							</select> <input type="hidden" name="cartId" value="${data.cartId}">
-							<br> <a href="#" class="btn btn-info"
+							<a href="#" class="btn btn-info"
 								onclick="updateSizeCart()">수정</a>
 						</form></td>
 					<td>${data.price}</td>
 					<td><form action="/cartUpdate" method="post" name="update">
 							<input type="hidden" name="cartId" value="${data.cartId}">
 							<input type="number" name="quantity" size="2"
-								value="${data.quantity}"> <br> <a href="#"
+								value="${data.quantity}"> <a href="#"
 								class="btn btn-info" onclick="updateCart()">수정</a>
 						</form></td>
 					<td>${data.totalprice}</td>
@@ -86,6 +87,8 @@
 				</tr>
 			</c:forEach>
 		</tbody>
+		
 	</table>
+	<img alt="" src="./resources/images/001.jpg" style="width: 100%">
 </body>
 </html>
