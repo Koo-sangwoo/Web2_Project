@@ -63,10 +63,6 @@
 			<td><a>사이즈 : ${productdata.size}<br /></a></td>
 		</c:forEach>
 
-		<a><input type="checkbox" name="toss" value="토스">토스</a> <a><input
-			type="checkbox" name="kakao" value="카카오페이">카카오페이</a> <a><input
-			type="checkbox" name="Account" value="가상계좌">가상계좌</a>
-
 		<form method="post" action="/kakaopay">
 			<button>
 				<img alt="" src="./resources/img/payment_icon_yellow_medium.png"

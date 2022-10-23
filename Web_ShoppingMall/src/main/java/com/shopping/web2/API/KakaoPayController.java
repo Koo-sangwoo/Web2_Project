@@ -38,7 +38,7 @@ public class KakaoPayController {
 					+ "&total_amount=5000" // 총 금액
 					+ "&vat_amount=200" // 부가세
 					+ "&tax_free_amount=0" // 상품 비과세 금액
-					+ "&approval_url=http://localhost:8080/" // 결제 성공 시
+					+ "&approval_url=http://localhost:8080/kakaoPaySuccess" // 결제 성공 시
 					+ "&fail_url=http://localhost:8080/" // 결제 실패 시
 					+ "&cancel_url=http://localhost:8080/"; // 결제 취소 시
 			OutputStream send = connection.getOutputStream(); // 이제 뭔가를 를 줄 수 있다.
