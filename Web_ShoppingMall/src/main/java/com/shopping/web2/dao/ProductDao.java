@@ -15,8 +15,8 @@ public class ProductDao {
 	@Autowired
 	private SqlSessionTemplate sqltemplate;
 	
-	public List<ProductVO> list(Map<String, Object> map){
-		return sqltemplate.selectList("product.list",map);
+	public List<ProductVO> list(String category){
+		return sqltemplate.selectList("product.list",category);
 	}
 	
 }

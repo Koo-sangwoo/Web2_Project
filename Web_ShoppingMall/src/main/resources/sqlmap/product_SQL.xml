@@ -3,8 +3,8 @@
 
 <mapper namespace="product">
 
-<select id="list" parameterType="String" resultSets="ProductVO">
-	select * from product 
+<select id="list" parameterType="String" resultType="hashMap">
+	select * from product where category = #{category}
 </select>
 
 </mapper>

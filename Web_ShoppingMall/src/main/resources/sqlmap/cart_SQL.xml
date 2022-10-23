@@ -22,7 +22,7 @@
 <!-- 	</update> -->
 	
 	<select id="list" parameterType="String" resultType="hashMap">
-		select filename, pname, quantity, price, cartId, size from cart inner join product where cart.memberId = #{memberId} and cart.productId = product.productId; 
+		select filename, pname, quantity, price*quantity as totalprice, cartId, size from cart inner join product where cart.memberId = #{memberId} and cart.productId = product.productId; 
 	</select>
 	
 	<update id="update" parameterType="HashMap">

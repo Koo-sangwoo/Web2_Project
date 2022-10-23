@@ -6,5 +6,5 @@ import java.util.Map;
 import com.shopping.web2.vo.ProductVO;
 
 public interface ProductService {
-	List<ProductVO> list(Map<String, Object> map);
+	List<ProductVO> productLists(String category);
 }
