@@ -8,28 +8,12 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<style>
-img {
-	float: left;
-}
-
-.title {
-	font-size: 12px;
-	line-height: 1.6;
-	font-weight: normal;
-	color: #353535;
-	width: 120px;
-	padding: 8px 4px 8px 11px;
-	text-align: left;
-	vertical-align: middle;
-}
-</style>
 <title>Insert title here</title>
 </head>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<c:forEach items="${productdetail}" var="data">
-		<img class="img-thumbnail text-start" alt=""
+		<img style="float: left" class="img-thumbnail text-start" alt=""
 			src="../resources/images/${data.filenamemember}">
 		<h3>${data.pname}</h3>
 		<div style="float: left">
