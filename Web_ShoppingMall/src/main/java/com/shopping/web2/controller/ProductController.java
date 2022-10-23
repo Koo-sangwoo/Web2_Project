@@ -29,5 +29,13 @@ public class ProductController {
 		mav.addObject("productlists",lists);
 		return mav;
 	}
+	
+	@RequestMapping(value="/product/detail", method = RequestMethod.GET)
+	public ModelAndView productDetail(@RequestParam String productId) {
+		List<ProductVO> lists = service.productDetail(productId);
+		ModelAndView mav = new ModelAndView("product/productDetail");
+		mav.addObject("productdetail",lists);
+		return mav;
+	}
 
 }

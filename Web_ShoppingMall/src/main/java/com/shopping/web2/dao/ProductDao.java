@@ -19,4 +19,9 @@ public class ProductDao {
 		return sqltemplate.selectList("product.list",category);
 	}
 	
+	public List<ProductVO> detail(String productId){
+		return sqltemplate.selectList("product.detail",productId);
+	}
+	
+	
 }
