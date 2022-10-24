@@ -27,9 +27,9 @@ public class OrderController {
 	@Autowired
 	private OrderService service;
 
-	@RequestMapping(value = "/order/order", method = RequestMethod.GET)
+	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public ModelAndView cartlists(@RequestParam Map<String,Object> map) {
-		ModelAndView mav = new ModelAndView("/order");
+		ModelAndView mav = new ModelAndView("/order/order");
 		mav.addObject("orderinfo", service.order_info(map));
 		return mav;
 	}

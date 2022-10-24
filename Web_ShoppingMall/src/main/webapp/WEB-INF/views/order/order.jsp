@@ -13,6 +13,40 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <title>상품주문</title>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">	
+</script>
+<script type="text/javascript">
+// 카카오결제
+$(function(){
+	$("#btn-kakao-pay").click(function(){
+		
+		
+		// 카카오페이 결제전송
+		$.ajax({
+			type:'get'
+			,url:'/order/pay'
+			,data:{
+				total_amount: 100
+				,payUserName: 200
+				,sumPrice:300
+				,discountPrice:400
+				,totalPrice:500
+				,tel:600
+				,email:700
+				,usePoint:800
+				,useCouponNo:900	
+				
+			},
+			success:function(response){
+				location.href = response.next_redirect_pc_url			
+			}
+		})
+	})
+})
+</script>
+
 <style type="text/css">
 #down-right {
 	position: absolute;
@@ -62,14 +96,6 @@
 			<td><a>주문 상품 :${productdata.productId}<br /></a></td>
 			<td><a>사이즈 : ${productdata.size}<br /></a></td>
 		</c:forEach>
-
-		<form method="post" action="/kakaopay">
-			<button>
-				<img alt="" src="./resources/img/payment_icon_yellow_medium.png"
-					style="width: 100px; height: 100px">
-			</button>
-		</form>
-
 
 		<div id="down-right" style="display: inline-block">
 			<form action="order_compl.jsp">
