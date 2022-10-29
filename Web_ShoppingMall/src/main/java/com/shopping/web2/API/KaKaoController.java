@@ -44,19 +44,19 @@ public class KaKaoController {
 		return readyResponse; // 클라이언트에 보냄.(tid,next_redirect_pc_url이 담겨있음.)
 	}
 
-	@RequestMapping(value = "pay/completed")
+	@RequestMapping(value = "order/pay/completed")
 	public ModelAndView completed(@RequestParam(defaultValue = "1") String num, Locale locale, Model model) {
 		System.out.println("결제 승인");
 		return null;
 	}
 
-	@RequestMapping(value = "pay/cancel")
+	@RequestMapping(value = "order/pay/cancel")
 	public ModelAndView cancel(@RequestParam(defaultValue = "1") String num, Locale locale, Model model) {
 		System.out.println("결제 취소");
 		return null;
 	}
 
-	@RequestMapping(value = "pay/fail")
+	@RequestMapping(value = "order/pay/fail")
 	public ModelAndView fail(@RequestParam(defaultValue = "1") String num, Locale locale, Model model) {
 		System.out.println("결제 실패");
 		return null;

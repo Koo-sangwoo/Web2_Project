@@ -26,9 +26,9 @@ public class KakaoPayService {
 		parameters.add("quantity", "100");
 		parameters.add("total_amount", "200");
 		parameters.add("tax_free_amount", "0");
-		parameters.add("approval_url", "http://localhost/order/pay/completed"); // 결제승인시 넘어갈 url
-		parameters.add("cancel_url", "http://localhost/order/pay/cancel"); // 결제취소시 넘어갈 url
-		parameters.add("fail_url", "http://localhost/order/pay/fail"); // 결제 실패시 넘어갈 url
+		parameters.add("approval_url", "http://localhost:8080/order/pay/completed"); // 결제승인시 넘어갈 url
+		parameters.add("cancel_url", "http://localhost:8080/order/pay/cancel"); // 결제취소시 넘어갈 url
+		parameters.add("fail_url", "http://localhost:8080/order/pay/fail"); // 결제 실패시 넘어갈 url
 
 		/* log.info("파트너주문아이디:" + parameters.get("partner_order_id")); */
 		HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<MultiValueMap<String, String>>(parameters, this.getHeaders());
@@ -54,7 +54,7 @@ public class KakaoPayService {
 		parameters.add("pg_token", pgToken);
 
 		// 하나의 map안에 header와 parameter값을 담아줌.
-		HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<MultiValueMap<String, String>>(parameters, this.getHeaders());
+		HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(parameters, this.getHeaders());
 
 		// 외부url 통신
 		RestTemplate template = new RestTemplate();
@@ -69,7 +69,7 @@ public class KakaoPayService {
 	// header() 셋팅
 	private HttpHeaders getHeaders() {
 		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization", "KakaoAK b181663dd7ac31823e80b4b7e6f00dba");
+		headers.set("Authorization", "KakaoAK 01c28ab0ae49b8904c77a6bc7ae0c361");
 		headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
 		return headers;
