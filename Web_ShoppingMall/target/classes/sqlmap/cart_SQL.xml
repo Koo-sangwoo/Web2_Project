@@ -37,6 +37,14 @@
 	<update id="updateSize" parameterType="HashMap">
 		update cart set size = #{size} where cartId = #{cartId}
 	</update>
+	
+	<select id="duplicateList" parameterType="HashMap" resultType="hashMap">
+	select * from webproject.cart where size = #{size} and productId = (select productId from webproject.cart where cartId=#{cartId}) and memberId = (select memberId from webproject.cart where cartId=#{cartId})
+	
+	</select>
+	
+	
+
 
 
 

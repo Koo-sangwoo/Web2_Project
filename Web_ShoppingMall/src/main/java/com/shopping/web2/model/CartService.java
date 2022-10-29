@@ -3,6 +3,8 @@ package com.shopping.web2.model;
 import java.util.List;
 import java.util.Map;
 
+import com.shopping.web2.vo.CartVO;
+
 public interface CartService {
 
 	List<Map<String, Object>> list(String memberId);
@@ -11,6 +13,8 @@ public interface CartService {
 
 	void delete(String cartId);
 
-	void updateSize(Map<String, Object> map);
+	boolean updateSize(Map<String, Object> map);
+
+
 
 }

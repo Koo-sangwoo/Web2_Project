@@ -33,7 +33,7 @@ public class CartController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/cartUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/cartUpdate", method = RequestMethod.GET)
 	public ModelAndView cartUpdate(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 		service.update(map);
@@ -41,22 +41,36 @@ public class CartController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/cartDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/cartDelete", method = RequestMethod.GET)
 	public ModelAndView cartDelete(@RequestParam String cartId) {
 		ModelAndView mav = new ModelAndView();
 		service.delete(cartId);
 		mav.setViewName("redirect:/cart?memberId=asdf");
-		return mav;}
-		
-		@RequestMapping(value = "/cartSizeUpdate", method = RequestMethod.POST)
-		public ModelAndView cartSizeUpdate(@RequestParam Map<String, Object> map) {
-			ModelAndView mav = new ModelAndView();
-			service.updateSize(map);
-			mav.setViewName("redirect:/cart?memberId=asdf");
-			return mav;
+		return mav;
+	}
+
+	@RequestMapping(value = "/cartSizeUpdate", method = RequestMethod.POST)
+	public ModelAndView cartSizeUpdate(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+			boolean isUpdateSize = service.updateSize(map);
+			if (isUpdateSize) {
+			mav.addObject("msg", "수정되었습니다.");
+		} else {
+			mav.addObject("msg", "상품이 이미 장바구니에 있습니다.");
 		}
-		
-		
+		mav.setViewName("cart/cartUpdate");
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/orderCart", method = RequestMethod.POST)
+	public ModelAndView orderCart(@RequestParam String[] cartId) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("cartIds", cartId);
+		mav.setViewName("cart/order");
+
+		return mav;
+	}
 
 //	}
 

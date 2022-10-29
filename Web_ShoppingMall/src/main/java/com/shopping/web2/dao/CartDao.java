@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.shopping.web2.vo.CartVO;
+
 
 @Repository
 public class CartDao {
@@ -31,5 +33,10 @@ public class CartDao {
 		sqltemplate.update("cart.updateSize",map);
 		
 	}
+	
+	public List<Map<String, Object>> duplicateList(Map<String, Object> map) {
+		return sqltemplate.selectList("cart.duplicateList", map);
+	}
+
 	
 }
