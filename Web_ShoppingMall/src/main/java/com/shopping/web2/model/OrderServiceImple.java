@@ -19,4 +19,10 @@ public class OrderServiceImple implements OrderService {
 		return dao.order_info(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> orderlist(Map<String, Object> map) {
+		
+		return dao.order_list(map);
+	}
+
 }

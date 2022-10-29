@@ -8,15 +8,6 @@
 
 <html>
 <head>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<meta charset="UTF-8">
-<title>상품주문</title>
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">	
-</script>
 <script type="text/javascript">
 // 카카오결제
 $(function(){
@@ -46,7 +37,10 @@ $(function(){
 	})
 })
 </script>
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>상품주문</title>
 <style type="text/css">
 #down-right {
 	position: absolute;
@@ -97,11 +91,7 @@ $(function(){
 			<td><a>사이즈 : ${productdata.size}<br /></a></td>
 		</c:forEach>
 
-		<div id="down-right" style="display: inline-block">
-			<form action="order_compl.jsp">
-				<button type="submit" class="btn btn-secondary">결제하기</button>
-			</form>
-		</div>
+		<input type="button" id = "btn-kakao-pay" value="결재요청">
 
 		<div id="down-left" style="display: inline-block">
 			<form action="cart.jsp">

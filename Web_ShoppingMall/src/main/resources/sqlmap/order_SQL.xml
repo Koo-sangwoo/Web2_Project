@@ -15,8 +15,11 @@ select member.memberId,member.name,member.address,member.phonenumber,member.emai
 select * from member 
 </select>
 
-<select id="order_product">
-
+<select id="orderlist" parameterType="hashMap" resultType="hashMap">
+select a.quantity,a.pname,a.productId,a.price,a.Delivery_status,a.order_orderId,a.filename,b.name
+  from order_list as a 
+  inner join member as b 
+  on a.memberId = b.memberId;
 </select>
 
 </mapper>

@@ -34,5 +34,14 @@ public class OrderController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/orderlist", method = RequestMethod.GET)
+	public ModelAndView orderlists(@RequestParam Map<String,Object> map) {
+		ModelAndView mav = new ModelAndView("/order/orderlist");
+		mav.addObject("orderlist", service.orderlist(map));
+		mav.addObject("orderinfo", service.order_info(map));
+		return mav;
+	}
+	
+	
 
 }

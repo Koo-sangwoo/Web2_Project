@@ -27,16 +27,16 @@ public class KaKaoController {
 	@Autowired
 	KakaoPayService kakaopayService;
 
-	@RequestMapping(value = "/order", method = RequestMethod.GET)
+	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
 	public ModelAndView kakao(@RequestParam(defaultValue = "1") String num, Locale locale, Model model) {
-		ModelAndView mav = new ModelAndView("kakao/kakao");
+		ModelAndView mav = new ModelAndView("kakaoAPI/kakao");
 		return mav;
 
 	}
 	
 	// 카카오페이결제 요청
 	@RequestMapping(value = "/order/pay", method = RequestMethod.GET)
-	public @ResponseBody ReadyResponse payReady(@RequestParam(value = "total_amount") int totalAmount, Model model) {
+	public @ResponseBody ReadyResponse payReady(@RequestParam(name = "total_amount") int totalAmount, Model model) {
 
 		// 카카오 결제 준비하기 - 결제요청 service 실행.
 		ReadyResponse readyResponse = kakaopayService.payReady(totalAmount);

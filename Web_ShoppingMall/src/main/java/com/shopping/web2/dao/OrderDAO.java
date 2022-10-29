@@ -18,4 +18,10 @@ public class OrderDAO {
 		
 		return sqltemplate.selectList("order.order_info",map);
 	}
+	
+public List<Map<String,Object>> order_list(Map<String,Object> map) {
+		
+		return sqltemplate.selectList("order.orderlist",map);
+	}
+	
 }
