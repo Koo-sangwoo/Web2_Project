@@ -8,4 +8,6 @@ public interface ProductService {
 	List<ProductVO> productLists(String category);
 
 	List<ProductVO> productDetail(String productId);
+
+	List<ProductVO> productListAll();
 }

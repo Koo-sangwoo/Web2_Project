@@ -5,17 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-light">
-		<div class="container-fluid">
-			<ul class="nav">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="/product?category=pants">pants</a></li>
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="/product?category=outer">outer</a></li>
-			</ul>
-		</div>
-	</nav>
+
+	<ul class="nav nav-pills nav-fill sticky-top">
+		<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/product?category=pants">pants</a></li>
+		<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/product?category=outer">outer</a></li>
+		<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/product?category=Tshirt">T-Shirt</a></li>
+		<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/product?category=shirt">shirt</a></li>
+		<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/product?category=neat">neat</a></li>
+	</ul>
+
 </body>
 </html>

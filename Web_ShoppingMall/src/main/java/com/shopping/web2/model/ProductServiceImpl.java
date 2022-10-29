@@ -26,5 +26,10 @@ public class ProductServiceImpl implements ProductService {
 		return dao.detail(productId);
 	}
 
+	@Override
+	public List<ProductVO> productListAll() {
+		return dao.list();
+	}
+
 
 }

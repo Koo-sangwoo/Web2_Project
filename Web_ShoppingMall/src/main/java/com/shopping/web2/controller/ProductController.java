@@ -22,6 +22,13 @@ public class ProductController {
 	private ProductService service;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public ModelAndView productList() {
+		List<ProductVO> lists = service.productListAll();
+		ModelAndView mav = new ModelAndView("product/productList");
+		mav.addObject("productlists",lists);
+		return mav;
+	}
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public ModelAndView productList(@RequestParam(defaultValue = "pants") String category) {
 		List<ProductVO> lists = service.productLists(category);
