@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shopping.web2.dao.CartDao;
+import com.shopping.web2.vo.CartVO;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -33,9 +34,13 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void updateSize(Map<String, Object> map) {
-		dao.updateSize(map);
+	public boolean updateSize(Map<String, Object> map) {
+		List<Map<String, Object>> duplicateList = dao.duplicateList(map);
+		if(duplicateList.isEmpty())
+		{dao.updateSize(map);
+		return true;}
+		else {return false;}
+		}
 		
-	}
 
 }
