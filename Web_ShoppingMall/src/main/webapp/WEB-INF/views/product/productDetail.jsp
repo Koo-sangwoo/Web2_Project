@@ -56,7 +56,7 @@
 						</select> <span class="offset-md-6">수량 <input type="number"
 							style="width: 41.33px; height: 24.67px;" name="quantity"></span>
 						<hr>
-						<br> <a href="javascript:;" onclick="order();" class="btn btn-primary">바로구매</a> 
+						<br> <a href="javascript:;" onclick="orders();" class="btn btn-primary">바로구매</a> 
 						<a href="javascript:;" onclick="addCart();" class="btn btn-primary">장바구니</a>
 					</form>
 

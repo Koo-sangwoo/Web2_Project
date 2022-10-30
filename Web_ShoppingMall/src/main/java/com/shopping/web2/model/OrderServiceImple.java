@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shopping.web2.dao.OrderDAO;
+import com.shopping.web2.vo.OrderVO;
 
 @Service
 public class OrderServiceImple implements OrderService {
@@ -25,4 +26,11 @@ public class OrderServiceImple implements OrderService {
 		return dao.order_list(map);
 	}
 
+	@Override
+	public void insertOrder(OrderVO vo) {
+		dao.insertOrder(vo);
+		
+	}
+
 }
+

@@ -2,25 +2,35 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order">
-<select id="cart" parameterType="hashMap" resultType="hashMap">
-select * from cart 
-</select>
+	<select id="cart" parameterType="hashMap" resultType="hashMap">
+		select * from cart
+	</select>
 
-<select id="order_info" parameterType="hashMap" resultType="hashMap">
-select member.memberId,member.name,member.address,member.phonenumber,member.email,cart.quantity,cart.size,cart.productId
- from webproject.member inner join cart where cart.memberId = webproject.member.memberId;
-</select>
+	<select id="order_info" parameterType="hashMap"
+		resultType="hashMap">
+		select
+		member.memberId,member.name,member.address,member.phonenumber,member.email,cart.quantity,cart.size,cart.productId
+		from webproject.member inner join cart where cart.memberId =
+		webproject.member.memberId;
+	</select>
 
-<select id="customer_info" parameterType="hashMap" resultType="hashMap">
-select * from member 
-</select>
+	<select id="customer_info" parameterType="hashMap"
+		resultType="hashMap">
+		select * from member
+	</select>
 
-<select id="orderlist" parameterType="hashMap" resultType="hashMap">
-select a.quantity,a.pname,a.productId,a.price,a.Delivery_status,a.order_orderId,a.filename,b.name
-  from order_list as a 
-  inner join member as b 
-  on a.memberId = b.memberId;
-</select>
+	<select id="orderlist" parameterType="hashMap"
+		resultType="hashMap">
+		select
+		a.quantity,a.pname,a.productId,a.price,a.Delivery_status,a.order_orderId,a.filename,b.name
+		from order_list as a
+		inner join member as b
+		on a.memberId = b.memberId;
+	</select>
+
+	<insert id="insertOrder" parameterType="hashmap">
+		insert(memberId,size) values(#{memberId},#{size})
+	</insert>
 
 </mapper>
  
