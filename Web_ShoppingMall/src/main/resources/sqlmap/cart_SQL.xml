@@ -53,7 +53,7 @@
 	</select>
 
 	<insert id="addCart" parameterType="HashMap">
-		insert cart(quantity,productId,memberId,size) values (#{quantity},#{productId},#{memberId},#{size})
+		insert into cart(quantity,productId,memberId,size) values (#{quantity},#{productId},#{memberId},#{size})
 	</insert>
 
 
