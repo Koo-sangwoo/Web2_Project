@@ -19,7 +19,7 @@
 		document.items.submit();
 	}
 	function orders() {
-		document.items.action="/order";
+		document.items.action="/insertOrder";
 		document.items.submit();
 	}
 	</script>

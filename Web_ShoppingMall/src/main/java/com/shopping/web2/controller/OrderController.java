@@ -20,6 +20,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shopping.web2.model.OrderService;
+import com.shopping.web2.vo.OrderVO;
 
 
 @Controller
@@ -40,6 +41,15 @@ public class OrderController {
 		mav.addObject("orderlist", service.orderlist(map));
 		mav.addObject("orderinfo", service.order_info(map));
 		return mav;
+	}
+	
+	@RequestMapping(value = "/insertOrder", method = RequestMethod.GET)
+	public ModelAndView insertOrder(@ModelAttribute OrderVO vo) {
+		ModelAndView mav = new ModelAndView();
+		service.insertOrder(vo);
+		mav.setViewName("redirect:/order");
+		return mav;
+		
 	}
 	
 	
