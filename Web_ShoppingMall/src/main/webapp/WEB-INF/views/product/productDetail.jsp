@@ -22,33 +22,32 @@
 				<div class="col-md-6">
 					<h3>${data.pname}</h3>
 					<hr>
-					<div style="float: left">
-						<p>
-							판매가 <strong>${data.price}원</strong>
-						</p>
-						<hr>
-						<%
-						pageContext.setAttribute("cn", "\n");
-						%>
-						<p>${fn:replace(data.pdesc,cn,"<br/>")}</p>
+					<p>
+						판매가 <strong>${data.price}원</strong>
+					</p>
+					<hr>
+					<%
+					pageContext.setAttribute("cn", "\n");
+					%>
+					<p>${fn:replace(data.pdesc,cn,"<br/>")}</p>
 
-						<hr>
-						<p>
-							사이즈 <select class="form-select"
-								aria-label="Default select example">
+					<hr>
 
-								<option value="s">S</option>
-								<option value="M">M</option>
-								<option value="L">L</option>
-								<option value="XL">XL</option>
-							</select>
-						</p>
-						<hr>
-						<br>
-						<button type="button" class="btn btn-primary">바로구매</button>
-						<button type="button" class="btn btn-secondary">장바구니</button>
-					</div>
+					사이즈 <select class="form-select" aria-label="Default select example">
+
+						<option value="s">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+					</select> <span class="offset-md-6">수량 <input type="number"
+						style="width: 41.33px; height: 24.67px;" value="${data.quantity}"></span>
+
+
+					<hr>
+					<br> <a class="btn btn-primary">바로구매</a> <a
+						href="/cart?memberId=asdf" class="btn btn-secondary">장바구니</a>
 				</div>
+
 
 			</c:forEach>
 		</div>
