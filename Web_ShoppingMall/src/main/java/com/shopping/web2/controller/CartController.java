@@ -75,7 +75,7 @@ public class CartController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/addCart", method = RequestMethod.POST)
+	@RequestMapping(value = "/addCart", method = RequestMethod.GET)
 	public ModelAndView addCart(@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
 		service.addCart(vo);
