@@ -14,7 +14,9 @@ public interface CartService {
 	void delete(String cartId);
 
 	boolean updateSize(Map<String, Object> map);
-
+	
+	void addCart(CartVO vo);
 
 
 }
+

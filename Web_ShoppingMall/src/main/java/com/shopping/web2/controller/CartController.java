@@ -5,12 +5,14 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.security.auth.callback.ConfirmationCallback;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.shopping.web2.HomeController;
 import com.shopping.web2.model.CartService;
+import com.shopping.web2.vo.CartVO;
 
 @Controller
 public class CartController {
@@ -54,9 +57,9 @@ public class CartController {
 		ModelAndView mav = new ModelAndView();
 			boolean isUpdateSize = service.updateSize(map);
 			if (isUpdateSize) {
-			mav.addObject("msg", "수정되었습니다.");
+			mav.addObject("msg", "�닔�젙�릺�뿀�뒿�땲�떎.");
 		} else {
-			mav.addObject("msg", "상품이 이미 장바구니에 있습니다.");
+			mav.addObject("msg", "�긽�뭹�씠 �씠誘� �옣諛붽뎄�땲�뿉 �엳�뒿�땲�떎.");
 		}
 		mav.setViewName("cart/cartUpdate");
 
@@ -71,7 +74,15 @@ public class CartController {
 
 		return mav;
 	}
-
-//	}
+	
+	@RequestMapping(value = "/addCart", method = RequestMethod.POST)
+	public ModelAndView addCart(@ModelAttribute CartVO vo) {
+		ModelAndView mav = new ModelAndView();
+		service.addCart(vo);
+		mav.setViewName("redirect:/cart?memberId=asdf");
+		return mav;
+		
+	}
+	
 
 }

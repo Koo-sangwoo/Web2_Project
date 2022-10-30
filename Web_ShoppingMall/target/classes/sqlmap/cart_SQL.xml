@@ -4,49 +4,57 @@
 
 <mapper namespace="cart">
 
-<!-- 	<insert id="insert" parameterType="CartVO"> -->
-<!-- 		insert into -->
-<!-- 		board(cartId,memberId,productId,quantity) -->
-<!-- 		values(#{cartId},#{memberId},#{productId},#{quantity} -->
-<!-- 		) -->
-<!-- 	</insert> -->
+	<!-- <insert id="insert" parameterType="CartVO"> -->
+	<!-- insert into -->
+	<!-- board(cartId,memberId,productId,quantity) -->
+	<!-- values(#{cartId},#{memberId},#{productId},#{quantity} -->
+	<!-- ) -->
+	<!-- </insert> -->
 
-<!-- 	<select id="select_detail" parameterType="String" -->
-<!-- 		resultType="BoardVO"> -->
-<!-- 		select * from board where id = #{id} -->
-<!-- 	</select> -->
-<!-- 	<update id="update" parameterType="BoardVO"> -->
-<!-- 		update board -->
-<!-- 		set contents = #{contents}, regist_day = now() -->
-<!-- 		where id = #{id} -->
-<!-- 	</update> -->
-	
+	<!-- <select id="select_detail" parameterType="String" -->
+	<!-- resultType="BoardVO"> -->
+	<!-- select * from board where id = #{id} -->
+	<!-- </select> -->
+	<!-- <update id="update" parameterType="BoardVO"> -->
+	<!-- update board -->
+	<!-- set contents = #{contents}, regist_day = now() -->
+	<!-- where id = #{id} -->
+	<!-- </update> -->
+
 	<select id="list" parameterType="String" resultType="hashMap">
-		select filenamemember, pname, quantity, price*quantity as totalprice, cartId, size from cart inner join product where cart.memberId = #{memberId} and cart.productId = product.productId; 
+		select
+		filenamemember, pname, quantity, price*quantity as totalprice, cartId,
+		size from cart inner join product where cart.memberId = #{memberId}
+		and cart.productId = product.productId;
 	</select>
-	
+
 	<update id="update" parameterType="HashMap">
-		update cart set quantity = #{quantity} where cartId = #{cartId}
+		update cart set quantity =
+		#{quantity} where cartId = #{cartId}
 	</update>
 
 	<delete id="delete" parameterType="String">
-		delete from cart where cartId =
+		delete from cart where cartId
+		=
 		#{cartId}
 	</delete>
-	
+
 	<update id="updateSize" parameterType="HashMap">
-		update cart set size = #{size} where cartId = #{cartId}
+		update cart set size =
+		#{size} where cartId = #{cartId}
 	</update>
-	
-	<select id="duplicateList" parameterType="HashMap" resultType="hashMap">
-	select * from webproject.cart where size = #{size} and productId = (select productId from webproject.cart where cartId=#{cartId}) and memberId = (select memberId from webproject.cart where cartId=#{cartId})
-	
+
+	<select id="duplicateList" parameterType="HashMap"
+		resultType="hashMap">
+		select * from webproject.cart where size = #{size} and productId = (select
+		productId from webproject.cart where cartId=#{cartId}) and memberId =
+		(select memberId from webproject.cart where cartId=#{cartId})
+
 	</select>
-	
-	
 
-
-
+	<insert id="addCart" parameterType="HashMap">
+		insert cart(quantity,productId,memberId,size) values (#{quantity},#{productId},#{memberId},#{size})
+	</insert>
 
 
 </mapper>  

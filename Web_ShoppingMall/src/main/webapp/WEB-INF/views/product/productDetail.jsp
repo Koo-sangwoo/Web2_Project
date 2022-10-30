@@ -32,20 +32,25 @@
 					<p>${fn:replace(data.pdesc,cn,"<br/>")}</p>
 
 					<hr>
+					<form method="post" action="/addCart">
+						<input type="hidden" name="productId" value="${data.productId}">
+						<input type="hidden" name="memberId" value="asdf">
 
-					사이즈 <select class="form-select" aria-label="Default select example">
+						사이즈 <select class="form-select"
+							aria-label="Default select example" name="size">
 
-						<option value="s">S</option>
-						<option value="M">M</option>
-						<option value="L">L</option>
-						<option value="XL">XL</option>
-					</select> <span class="offset-md-6">수량 <input type="number"
-						style="width: 41.33px; height: 24.67px;" value="${data.quantity}"></span>
+							<option value="s">S</option>
+							<option value="M">M</option>
+							<option value="L">L</option>
+							<option value="XL">XL</option>
+						</select> <span class="offset-md-6">수량 <input type="number"
+							style="width: 41.33px; height: 24.67px;" name="quantity"></span>
+						<hr>
+						<br> <a class="btn btn-primary">바로구매</a> <input
+							class="btn btn-primary" type="submit" value="장바구니">
+					</form>
 
 
-					<hr>
-					<br> <a class="btn btn-primary">바로구매</a> <a
-						href="/cart?memberId=asdf" class="btn btn-secondary">장바구니</a>
 				</div>
 
 

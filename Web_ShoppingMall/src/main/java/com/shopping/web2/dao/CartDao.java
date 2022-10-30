@@ -37,6 +37,10 @@ public class CartDao {
 	public List<Map<String, Object>> duplicateList(Map<String, Object> map) {
 		return sqltemplate.selectList("cart.duplicateList", map);
 	}
+	
+	public void addCart(CartVO vo) {
+		sqltemplate.insert("cart.addCart",vo);
+	}
 
 	
 }

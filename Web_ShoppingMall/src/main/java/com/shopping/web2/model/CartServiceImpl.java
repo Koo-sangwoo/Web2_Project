@@ -41,6 +41,13 @@ public class CartServiceImpl implements CartService {
 		return true;}
 		else {return false;}
 		}
+
+	@Override
+	public void addCart(CartVO vo) {
+		dao.addCart(vo);
 		
+	}
+
+
 
 }
