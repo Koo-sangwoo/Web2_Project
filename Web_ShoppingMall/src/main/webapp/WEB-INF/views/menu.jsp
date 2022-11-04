@@ -10,6 +10,8 @@
 <body>
 
 	<ul class="nav nav-pills nav-fill sticky-top">
+	<li class="nav-item"><a class="nav-link" aria-current="page"
+			href="/weather">오늘뭐입지?</a></li>
 		<li class="nav-item"><a class="nav-link" aria-current="page"
 			href="/product?category=pants">pants</a></li>
 		<li class="nav-item"><a class="nav-link" aria-current="page"
