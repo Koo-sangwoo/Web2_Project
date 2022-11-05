@@ -23,6 +23,7 @@ function updateCart(cartId) {
 </script>
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
 <body>
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<h1>장바구니</h1>
 	<table class="table">
 		<thead>
@@ -47,17 +48,18 @@ function updateCart(cartId) {
 					<td style="vertical-align: middle; text-align: center;">${data.pname}</td>
 
 					<td style="vertical-align: middle; text-align: center;">
-					<form action="/cartSizeUpdate" method="post" name="updateSize${data.cartId}">
-					<select name = "size">
-							<option selected>${data.size}</option>
-							<option>S</option>
-							<option>M</option>
-							<option>L</option>
-							<option>XL</option>
-					</select>
-					<input type="hidden" name = "cartId" value="${data.cartId}">
-					<input type = "submit" class="btn btn-outline-secondary" value="수정">
-					</form></td>
+						<form action="/cartSizeUpdate" method="post"
+							name="updateSize${data.cartId}">
+							<select name="size">
+								<option selected>${data.size}</option>
+								<option>S</option>
+								<option>M</option>
+								<option>L</option>
+								<option>XL</option>
+							</select> <input type="hidden" name="cartId" value="${data.cartId}">
+							<input type="submit" class="btn btn-outline-secondary" value="수정">
+						</form>
+					</td>
 					<td style="vertical-align: middle; text-align: center;"><input
 						type="number" id="${data.cartId}quantity"
 						style="width: 41.33px; height: 24.67px;" value="${data.quantity}">
