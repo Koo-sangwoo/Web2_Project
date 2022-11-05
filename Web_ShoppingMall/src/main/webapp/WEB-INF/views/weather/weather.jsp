@@ -73,10 +73,8 @@ fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + userLat + "&lon="
 			} else if (weatherId == 800) {
 			weatherId = 'clear';
 			} else {weatherId = 'other';}
-			console.log(weatherTemp);
 
 			
-			console.log(weatherTemp + weatherId);
 			addList(weatherTemp, weatherId);
 
 		

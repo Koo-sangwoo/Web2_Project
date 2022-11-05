@@ -34,7 +34,6 @@ public class WeatherController {
 	@ResponseBody	
 	public List<ProductVO> weatherlists(@RequestBody Map<String, Object> param){
 		List<ProductVO> lists = service.weatherList(param);
-		System.out.println(lists);
 		return lists;
 	}
 
