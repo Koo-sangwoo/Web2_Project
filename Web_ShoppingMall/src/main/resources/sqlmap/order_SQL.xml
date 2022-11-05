@@ -29,7 +29,7 @@
 	</select>
 
 	<insert id="insertOrder" parameterType="hashmap">
-		insert into order(memberId,size) values(#{memberId},#{size})
+		insert into `order`(memberId,size) values(#{memberId},#{size})
 	</insert>
 
 </mapper>
