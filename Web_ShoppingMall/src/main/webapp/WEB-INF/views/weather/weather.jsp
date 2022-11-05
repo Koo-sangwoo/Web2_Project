@@ -113,9 +113,8 @@ navigator.geolocation.getCurrentPosition(getLocWeather, showErrorMsg);
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div
-		class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+		class="position-relative overflow-hidden p-3 m-md-3 text-center bg-light font-noto">
 		<div class="col-md-5 p-lg-5 mx-auto my-5">
-			<h1 class="display-4 fw-normal">오늘 뭐 입지?</h1>
 			<p class="lead fw-normal">
 				현재 고객님께서 계신 곳의 기온과 날씨에 따라<br>옷차림을 추천해 드립니다.
 			</p>
