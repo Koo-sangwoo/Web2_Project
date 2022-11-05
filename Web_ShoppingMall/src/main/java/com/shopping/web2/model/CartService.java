@@ -15,7 +15,11 @@ public interface CartService {
 
 	boolean updateSize(Map<String, Object> map);
 	
-	void addCart(CartVO vo);
+	void insertCart(Map<String, Object> map);
+
+	int countCart(String productId, String memberId, String size);
+	
+	void updateCart(Map<String, Object> map);
 
 
 }

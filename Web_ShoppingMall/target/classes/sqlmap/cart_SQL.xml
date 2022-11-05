@@ -46,15 +46,33 @@
 
 	<select id="duplicateList" parameterType="HashMap"
 		resultType="hashMap">
-		select * from webproject.cart where size = #{size} and productId = (select
-		productId from webproject.cart where cartId=#{cartId}) and memberId =
-		(select memberId from webproject.cart where cartId=#{cartId})
+		select * from webproject.cart where size = #{size} and
+		productId = (select
+		productId from webproject.cart where
+		cartId=#{cartId}) and memberId =
+		(select memberId from webproject.cart
+		where cartId=#{cartId})
 
 	</select>
 
-	<insert id="addCart" parameterType="HashMap">
-		insert into cart(quantity,productId,memberId,size) values (#{quantity},#{productId},#{memberId},#{size})
+	<insert id="insertCart" parameterType="HashMap">
+		insert into
+		cart(quantity,productId,memberId,size) values
+		(#{quantity},#{productId},#{memberId},#{size})
 	</insert>
 
+	<select id="countCart" parameterType="HashMap"
+		resultType="_integer">
+		select count(*)
+		from cart
+		where memberId = #{memberId} and productId = #{productId} and size =
+		#{size}
+	</select>
+
+	<update id="updateCart" parameterType="HashMap">
+		update cart set quantity =
+		#{quantity} where productId = #{productId} and
+		memberId = #{memberId} and size = #{size}
+	</update>
 
 </mapper>  

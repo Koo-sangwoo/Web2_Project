@@ -42,9 +42,21 @@ public class CartServiceImpl implements CartService {
 		else {return false;}
 		}
 
+
 	@Override
-	public void addCart(CartVO vo) {
-		dao.addCart(vo);
+	public int countCart(String productId, String memberId,String size) {
+		return dao.countCart(productId, memberId, size);
+	}
+
+	@Override
+	public void insertCart(Map<String, Object> map) {
+		dao.addCart(map);
+		
+	}
+
+	@Override
+	public void updateCart(Map<String, Object> map) {
+		dao.updateCart(map);
 		
 	}
 

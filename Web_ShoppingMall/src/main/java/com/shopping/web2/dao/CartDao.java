@@ -1,5 +1,6 @@
 package com.shopping.web2.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,9 +39,20 @@ public class CartDao {
 		return sqltemplate.selectList("cart.duplicateList", map);
 	}
 	
-	public void addCart(CartVO vo) {
-		sqltemplate.insert("cart.addCart",vo);
+	public void addCart(Map<String, Object> map) {
+		sqltemplate.insert("cart.insertCart",map);
 	}
-
+	
+	public int countCart(String productId, String memberId,String size) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("productId", productId);
+		map.put("memberId",memberId);
+		map.put("size", size);
+		return sqltemplate.selectOne("cart.countCart",map);
+		
+	}
+	public void updateCart(Map<String, Object> map) {
+		sqltemplate.update("cart.updateCart",map);
+	}
 	
 }
