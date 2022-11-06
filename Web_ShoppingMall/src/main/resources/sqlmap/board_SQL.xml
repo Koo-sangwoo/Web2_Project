@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="board">
+
+	<insert id="create" parameterType="BoardVO">
+		insert into
+		board(pname,cusname,content,title,createDate)
+		values(#{pname},#{cusname},#{content},#{title},now()
+		)
+	</insert>
+
+	<select id="select_detail" parameterType="String"
+		resultType="BoardVO">
+		select * from member board cusname = #{cusname}
+	</select>
+	<update id="update" parameterType="BoardVO">
+		update board
+		set contents = #{content}, createDate= now()
+		where cusname= #{cusname}
+	</update>
+
+	<!-- <select id="list" parameterType="hashMap" resultType="hashMap"> -->
+	<select id="list" parameterType="hashMap" resultType="BoardVO">	
+		select T.* from 
+		(
+			select * from board order by cusname
+		)T
+		<if test="search != null and search != ''">
+			where 
+				contents like concat('%',trim(#{search}),'%')				   
+		</if>
+		limit #{pernum} offset ${start}
+		
+		
+	</select>
+
+	<delete id="delete" parameterType="String">
+		delete from board where cusname = #{cusname}
+	</delete>
+
+	<!-- <select id="search" parameterType="hashMap" resultType="hashMap"> select 
+		* from member <if test="search != null and search != ''"> where name like 
+		concat('%',#{search},'%') or id like concat('%',#{search},'%') </if> </select> -->
+
+
+
+</mapper>  
