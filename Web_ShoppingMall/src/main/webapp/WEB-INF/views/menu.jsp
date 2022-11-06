@@ -44,7 +44,7 @@
 		</a>
 	</div>
 </header>
-<ul class="nav nav-pills nav-fill sticky-top font-noto border-bottom">
+<ul class="nav nav-pills nav-fill sticky-top font-noto border-bottom" style="background-color: white;">
 	<li class="nav-item"><a class="nav-link" style="color: black;"
 		aria-current="page" href="/weather">오늘뭐입지?</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
