@@ -27,7 +27,7 @@
 		<div class="row">
 			<c:forEach items="${productdetail}" var="data">
 				<div class="col-md-5">
-					<img src="../resources/images/${data.filenamemember}">
+					<img src="../resources/images/${data.filename}">
 				</div>
 				<div class="col-md-6">
 					<h3>${data.pname}</h3>

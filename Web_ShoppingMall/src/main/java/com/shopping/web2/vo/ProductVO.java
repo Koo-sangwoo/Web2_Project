@@ -7,7 +7,7 @@ public class ProductVO {
 	private String price;  
 	private String pdesc;  
 	private String category; 
-	private String filenamemember;
+	private String filename;
 	private String registday;
 	private String SunitStock;
 	private String MunitStock;
@@ -16,7 +16,7 @@ public class ProductVO {
 	@Override
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", pname=" + pname + ", price=" + price + ", pdesc=" + pdesc
-				+ ", category=" + category + ", filenamemember=" + filenamemember + ", registday=" + registday
+				+ ", category=" + category + ", filename=" + filename + ", registday=" + registday
 				+ ", SunitStock=" + SunitStock + ", MunitStock=" + MunitStock + ", LunitStock=" + LunitStock
 				+ ", XLunitStock=" + XLunitStock + "]";
 	}

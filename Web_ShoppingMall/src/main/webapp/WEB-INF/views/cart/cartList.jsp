@@ -24,10 +24,13 @@ function updateCart(cartId) {
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<h1>장바구니</h1>
-	<table class="table">
+	<br><br>
+
+	<div class="container bordered">
+		<h5 class="font-noto" style="font-weight: bold;">장바구니</h5><br><br>
+	<table class="table font-noto">
 		<thead>
-			<tr>
+			<tr class="table-light">
 				<th scope="col" style="text-align: center;">#</th>
 				<th scope="col" style="text-align: center;">상품</th>
 				<th scope="col" style="text-align: center;">상품명</th>
@@ -73,6 +76,7 @@ function updateCart(cartId) {
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 
 
 </body>
