@@ -11,9 +11,9 @@ public interface OrderService {
 	
 	public List<Map<String,Object>> orderlist(Map<String, Object> map);
 
-
 	public void insertOrder(OrderVO vo);
 
+	public List<Map<String,Object>> customer_info(Map<String, Object> map);
 
 }
 

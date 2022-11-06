@@ -8,15 +8,12 @@
 
 	<select id="order_info" parameterType="hashMap"
 		resultType="hashMap">
-		select
-		member.memberId,member.name,member.address,member.phonenumber,member.email,cart.quantity,cart.size,cart.productId
-		from webproject.member inner join cart where cart.memberId =
-		webproject.member.memberId;
+		select * from cart where memberId = #{memberId}
 	</select>
 
 	<select id="customer_info" parameterType="hashMap"
 		resultType="hashMap">
-		select * from member
+		select * from member where memberId = #{memberId}
 	</select>
 
 	<select id="orderlist" parameterType="hashMap"
@@ -29,7 +26,7 @@
 	</select>
 
 	<insert id="insertOrder" parameterType="hashmap">
-		insert into `order`(memberId,size) values(#{memberId},#{size})
+		insert into cart(productId,quantity,memberId,size) values(#{productId},#{quantity},#{memberId},#{size})
 	</insert>
 
 </mapper>

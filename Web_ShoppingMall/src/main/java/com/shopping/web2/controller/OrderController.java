@@ -32,6 +32,7 @@ public class OrderController {
 	public ModelAndView cartlists(@RequestParam Map<String,Object> map) {
 		ModelAndView mav = new ModelAndView("/order/order");
 		mav.addObject("orderinfo", service.order_info(map));
+		mav.addObject("customer_info",service.customer_info(map));
 		return mav;
 	}
 	
@@ -47,7 +48,7 @@ public class OrderController {
 	public ModelAndView insertOrder(@ModelAttribute OrderVO vo) {
 		ModelAndView mav = new ModelAndView();
 		service.insertOrder(vo);
-		mav.setViewName("redirect:/order");
+		mav.setViewName("redirect:/order?memberId="+vo.getMemberId());
 		return mav;
 		
 	}

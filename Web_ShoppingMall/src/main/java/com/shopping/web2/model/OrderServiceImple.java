@@ -32,5 +32,10 @@ public class OrderServiceImple implements OrderService {
 		
 	}
 
+	@Override
+	public List<Map<String, Object>> customer_info(Map<String, Object> map) {
+		return dao.customer_info(map);
+	}
+
 }
 

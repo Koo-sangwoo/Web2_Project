@@ -32,5 +32,11 @@ public void insertOrder(OrderVO vo) {
 	sqltemplate.insert("order.insertOrder", vo);
 	
 }
+
+public List<Map<String,Object>> customer_info(Map<String,Object> map) {
+	
+	return sqltemplate.selectList("order.customer_info",map);
+}
+
 	
 }

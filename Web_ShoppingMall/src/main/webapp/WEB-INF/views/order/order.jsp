@@ -75,7 +75,7 @@ $(function(){
 
 
 	<div align="center">
-		<c:forEach items="${orderinfo}" var="cusinfo">
+		<c:forEach items="${customer_info}" var="cusinfo">
 			<tr>
 				<div class="col-md-6">
 					<label for="inputEmail4" class="form-label">고객명</label> <input
@@ -103,6 +103,7 @@ $(function(){
 		</div>
 
 	</div>
+
 
 </body>
 </html>

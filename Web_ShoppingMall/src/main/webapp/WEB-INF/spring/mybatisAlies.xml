@@ -8,5 +8,7 @@
 			type="com.shopping.web2.vo.MemberVO" />
 		<typeAlias alias="ProductVO"
 			type="com.shopping.web2.vo.ProductVO" />
+			<typeAlias alias="BoardVO"
+			type="com.shopping.web2.vo.BoardVO" />
 	</typeAliases>
 </configuration>
