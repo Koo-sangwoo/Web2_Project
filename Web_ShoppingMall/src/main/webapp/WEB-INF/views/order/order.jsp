@@ -79,7 +79,7 @@ $(function(){
 			<tr>
 				<div class="col-md-6">
 					<label for="inputEmail4" class="form-label">고객명</label> <input
-						type="cusname" class="form-control" id="inputcusname" value="${cusinfo.name}">
+						type="text" class="form-control" id="inputcusname" name="cusname" value="${cusinfo.name}">
 				</div>
 				<td><a>주소 : <textarea id="address" name="address" rows="1"
 							cols="50" style="resize: none">${cusinfo.address}</textarea><br /></a></td>
@@ -97,7 +97,7 @@ $(function(){
 		<input type="button" id = "btn-kakao-pay" value="결재요청">
 
 		<div id="down-left" style="display: inline-block">
-			<form action="cart.jsp">
+			<form action="/">
 				<button type="submit" class="btn btn-secondary">주문취소</button>
 			</form>
 		</div>

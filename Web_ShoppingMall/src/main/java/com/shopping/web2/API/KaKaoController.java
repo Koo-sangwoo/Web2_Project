@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shopping.web2.model.KakaoPayService;
+import com.shopping.web2.vo.OrderVO;
 import com.shopping.web2.vo.ReadyResponse;
 
 
@@ -45,9 +47,11 @@ public class KaKaoController {
 	}
 
 	@RequestMapping(value = "order/pay/completed")
-	public ModelAndView completed(@RequestParam(defaultValue = "1") String num, Locale locale, Model model) {
+	public ModelAndView completed(@RequestParam(defaultValue = "1") String num, Locale locale, Model model,@ModelAttribute OrderVO vo) {
 		System.out.println("결제 승인");
-		return null;
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/completed?memberId="+vo.getMemberId());
+		return mav;
 	}
 
 	@RequestMapping(value = "order/pay/cancel")

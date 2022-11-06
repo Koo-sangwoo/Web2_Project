@@ -16,18 +16,19 @@
 		select * from member where memberId = #{memberId}
 	</select>
 
-	<select id="orderlist" parameterType="hashMap"
+	<select id="orderList" parameterType="hashMap"
 		resultType="hashMap">
-		select
-		a.quantity,a.pname,a.productId,a.price,a.Delivery_status,a.order_orderId,a.filename,b.name
-		from order_list as a
-		inner join member as b
-		on a.memberId = b.memberId;
+		select * from order_list where memberId = #{memberId}
 	</select>
 
 	<insert id="insertOrder" parameterType="hashmap">
 		insert into cart(productId,quantity,memberId,size) values(#{productId},#{quantity},#{memberId},#{size})
 	</insert>
+	<!-- 
+	<insert id="inOrderList">
+		insert into order_list(memberId,ProductId,quantity,price,Delivery_status,filename,pname) 
+		values(#{memberId},#{productId),#{quantity},#{price},#{filename},"배송완료",#{pname})
+	</insert> -->
 
 </mapper>
  

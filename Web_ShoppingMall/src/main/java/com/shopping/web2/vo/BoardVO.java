@@ -6,6 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class BoardVO {
+	private String filename;
 	private String title;
 	private String content;
 	private String createDate;

@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.shopping.web2.HomeController;
 import com.shopping.web2.model.CartService;
 import com.shopping.web2.vo.CartVO;
+import com.shopping.web2.vo.OrderVO;
 
 @Controller
 public class CartController {
@@ -85,6 +86,14 @@ public class CartController {
 			service.updateCart(map);
 		mav.setViewName("redirect:/cart?memberId=asdf");
 		return mav;
+	}
+	
+	@RequestMapping(value = "/orderPay", method = RequestMethod.GET)
+	public ModelAndView orderPay(@ModelAttribute CartVO vo) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/order?memberId="+vo.getMemberId());
+		return mav;
+		
 	}
 
 }
