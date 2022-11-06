@@ -106,11 +106,11 @@
 						<p>
 							<a href="/product/detail?productId=${data.productId}"><img
 								style="width: 300px; height: 300px;" class="img-thumbnail"
-								alt="" src="./resources/images/${data.filename}"
-								> </a>
+								alt="" src="./resources/images/${data.filename}"> </a>
 						</p>
-						<p>상품이름: ${data.pname}</p>
-						<p>${data.price}
+						<p style="font-weight : bold">${data.pname}</p>
+						<hr style="width: 300px">
+						<p>${data.price}원
 					</div>
 				</c:forEach>
 			</div>
