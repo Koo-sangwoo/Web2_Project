@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.shopping.web2.model.BoardService;
 import com.shopping.web2.vo.BoardVO;
+import com.shopping.web2.vo.OrderVO;
 
 @Controller
 public class BoardrController {
@@ -36,6 +38,14 @@ public class BoardrController {
 		mav.addObject("lists",lists);
 		return mav; 				
 	}
+	
+	@RequestMapping(value = "/registReview", method = RequestMethod.GET)
+	public ModelAndView insertOrder(@ModelAttribute OrderVO vo) {
+		ModelAndView mav = new ModelAndView("/registReview");
+		return mav;
+		
+	}
+	
 //	@RequestMapping(value = "/memberList", method = RequestMethod.POST)
 //	public ModelAndView memberListData(@RequestParam String search, Locale locale, Model model) {
 //		List<MemberVO> lists =  service.list(search);

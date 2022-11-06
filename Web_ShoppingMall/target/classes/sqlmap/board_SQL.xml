@@ -40,6 +40,14 @@
 		delete from board where cusname = #{cusname}
 	</delete>
 
+	<select id="regist_review">
+		select memberId,productId,filename,pname from order_list where memberId = "seung";
+	</select>
+	
+	<insert id="post_review">
+		insert into board values(#{title},#{cusname},#{content},now(),#{pname});
+	</insert>
+
 	<!-- <select id="search" parameterType="hashMap" resultType="hashMap"> select 
 		* from member <if test="search != null and search != ''"> where name like 
 		concat('%',#{search},'%') or id like concat('%',#{search},'%') </if> </select> -->

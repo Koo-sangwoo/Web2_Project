@@ -23,7 +23,7 @@ function addList (weatherTemp, weatherId){
 		success: function(data) {
 			var y = "";
 			data.forEach(( i)=>{
-			 y += '<div class="col-md-4"><p><a href="/product/detail?productId=' + i.productId + '"><img style="width: 305px; margin-right: 20px;" class="img-thumbnail" alt="" src="./resources/images/' +i.filenamemember + '" style="width: 100%"></a></p><p>상품이름: ' + i.pname + '</p><p>' + i.price + '</div>'   
+			 y += '<div class="col-md-4"><p><a href="/product/detail?productId=' + i.productId + '"><img style="width: 300px; height: 300px;" class="img-thumbnail" alt="" src="./resources/images/' +i.filename + '"></a></p><p style="font-weight: bold">' + i.pname + '</p><hr style="width: 300px"><p>' + i.price + '원</div>'   
 			   } )
              document.querySelector('#test').insertAdjacentHTML('afterbegin', y)
 		}, 
@@ -126,6 +126,7 @@ navigator.geolocation.getCurrentPosition(getLocWeather, showErrorMsg);
 			</div>
 		</div>
 	</div>
+	<br><br>
 
 
 	<div class="row" id="test" align="center">	

@@ -16,7 +16,7 @@
 		select * from member where memberId = #{memberId}
 	</select>
 
-	<select id="orderList" parameterType="hashMap"
+	<select id="orderlist" parameterType="hashMap"
 		resultType="hashMap">
 		select * from order_list where memberId = #{memberId}
 	</select>

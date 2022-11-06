@@ -20,5 +20,9 @@ public class BoardDao {
 		map.put("start", start);
 		return sqltemplate.selectList("board.list", map);
 	}
+	
+	public List<Map<String, Object>> regist_review(Map<String, Object> map){
+		return sqltemplate.selectList("board.regist_review",map);
+	}
 
 }

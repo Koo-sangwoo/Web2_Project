@@ -27,10 +27,13 @@ function orderPay() {
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<h1>장바구니</h1>
-	<table class="table">
+	<br><br>
+
+	<div class="container bordered">
+		<h5 class="font-noto" style="font-weight: bold;">장바구니</h5><br><br>
+	<table class="table font-noto">
 		<thead>
-			<tr>
+			<tr class="table-light">
 				<th scope="col" style="text-align: center;">#</th>
 				<th scope="col" style="text-align: center;">상품</th>
 				<th scope="col" style="text-align: center;">상품명</th>
@@ -46,7 +49,7 @@ function orderPay() {
 				<tr>
 					<td style="vertical-align: middle; text-align: center;">${status.count}</td>
 					<td style="vertical-align: middle; text-align: center;"><img
-						alt="" src="./resources/images/${data.filenamemember}"
+						alt="" src="./resources/images/${data.filename}"
 						style="width: 100px; height: 100px"></td>
 					<td style="vertical-align: middle; text-align: center;">${data.pname}</td>
 
@@ -76,8 +79,12 @@ function orderPay() {
 			</c:forEach>
 		</tbody>
 	</table>
+<<<<<<< HEAD
 	<a href="javascript:;" class="btn btn-outline-secondary"
 	onclick="orderPay();">구매</a>
+
+	</div>
+
 
 
 </body>

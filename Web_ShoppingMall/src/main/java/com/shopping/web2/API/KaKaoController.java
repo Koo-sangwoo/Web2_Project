@@ -50,7 +50,7 @@ public class KaKaoController {
 	public ModelAndView completed(@RequestParam(defaultValue = "1") String num, Locale locale, Model model,@ModelAttribute OrderVO vo) {
 		System.out.println("결제 승인");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/completed?memberId="+vo.getMemberId());
+		mav.setViewName("redirect:/order/pay/completed");
 		return mav;
 	}
 

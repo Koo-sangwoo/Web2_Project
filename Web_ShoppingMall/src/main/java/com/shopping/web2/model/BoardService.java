@@ -10,4 +10,5 @@ public interface BoardService {
 
 	List<BoardVO> list(Map<String, Object> map);
 
+	List<Map<String, Object>> regist_review(Map<String, Object> map);
 }

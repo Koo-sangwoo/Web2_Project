@@ -20,4 +20,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.list(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> regist_review(Map<String, Object> map) {
+		
+		return dao.regist_review(map);
+	}
+
 }

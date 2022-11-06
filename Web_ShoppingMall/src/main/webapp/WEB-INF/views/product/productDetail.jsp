@@ -27,7 +27,7 @@
 		<div class="row">
 			<c:forEach items="${productdetail}" var="data">
 				<div class="col-md-5">
-					<img src="../resources/images/${data.filenamemember}">
+					<img src="../resources/images/${data.filename}">
 				</div>
 				<div class="col-md-6">
 					<h3>${data.pname}</h3>
@@ -54,7 +54,7 @@
 							<option value="L">L</option>
 							<option value="XL">XL</option>
 						</select> <span class="offset-md-6">수량 <input type="number"
-							style="width: 41.33px; height: 24.67px;" name="quantity"></span>
+							style="width: 41.33px; height: 24.67px;" name="quantity" value="1"></span>
 						<hr>
 						<br> <a href="javascript:;" onclick="orders();" class="btn btn-primary">바로구매</a> 
 						<a href="javascript:;" onclick="addCart();" class="btn btn-primary">장바구니</a>

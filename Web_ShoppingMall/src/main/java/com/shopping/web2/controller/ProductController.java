@@ -25,7 +25,7 @@ public class ProductController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView productList() {
 		List<ProductVO> lists = service.productListAll();
-		ModelAndView mav = new ModelAndView("product/productList");
+		ModelAndView mav = new ModelAndView("home");
 		mav.addObject("productlists",lists);
 		return mav;
 	}
