@@ -34,9 +34,14 @@
 				where
 				category = #{category}
 			</when>
+			<when test="category != null and category !=''">
+				where
+				pname like concat('%',trim(#{search}),'%')
+			</when>
 			<otherwise>
 				where
-				pname like concat('%',trim(#{search}),'%') and category = #{category}
+				pname like concat('%',trim(#{search}),'%') and
+				category = #{category}
 			</otherwise>
 		</choose>
 
