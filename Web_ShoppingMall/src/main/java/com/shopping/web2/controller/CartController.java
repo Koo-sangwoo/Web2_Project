@@ -57,9 +57,9 @@ public class CartController {
 		ModelAndView mav = new ModelAndView();
 		boolean isUpdateSize = service.updateSize(map);
 		if (isUpdateSize) {
-			mav.addObject("msg", "�닔�젙�릺�뿀�뒿�땲�떎.");
+			mav.addObject("msg", "수정되었습니다.");
 		} else {
-			mav.addObject("msg", "�긽�뭹�씠 �씠誘� �옣諛붽뎄�땲�뿉 �엳�뒿�땲�떎.");
+			mav.addObject("msg", "해당 상품이 이미 장바구니에 있습니다.");
 		}
 		mav.setViewName("cart/cartUpdate");
 

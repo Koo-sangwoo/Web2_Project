@@ -46,7 +46,7 @@ function updateCart(cartId) {
 				<tr>
 					<td style="vertical-align: middle; text-align: center;">${status.count}</td>
 					<td style="vertical-align: middle; text-align: center;"><img
-						alt="" src="./resources/images/${data.filenamemember}"
+						alt="" src="./resources/images/${data.filename}"
 						style="width: 100px; height: 100px"></td>
 					<td style="vertical-align: middle; text-align: center;">${data.pname}</td>
 

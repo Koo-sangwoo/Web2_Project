@@ -105,9 +105,9 @@
 					<div class="col-md-4">
 						<p>
 							<a href="/product/detail?productId=${data.productId}"><img
-								style="width: 305px; margin-right: 20px;" class="img-thumbnail"
-								alt="" src="./resources/images/${data.filenamemember}"
-								style="width: 100%"> </a>
+								style="width: 300px; height: 300px;" class="img-thumbnail"
+								alt="" src="./resources/images/${data.filename}"
+								> </a>
 						</p>
 						<p>상품이름: ${data.pname}</p>
 						<p>${data.price}
