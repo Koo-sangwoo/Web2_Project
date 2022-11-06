@@ -31,5 +31,18 @@ public class ProductServiceImpl implements ProductService {
 		return dao.list();
 	}
 
+	@Override
+	public List<ProductVO> productSearch(String search) {
+		// TODO Auto-generated method stub
+		return dao.searchlists(search);
+	}
+
+	@Override
+	public List<ProductVO> productSearchDetail(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.productsearch(map);
+	}
+
+
 
 }
