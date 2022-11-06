@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,7 @@ function goOrderList() {
 </script>
 </head>
 <body>
+<h1>결제성공했음 ㅋㅋ</h1>
 
 </body>
 </html>

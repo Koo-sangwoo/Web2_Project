@@ -39,10 +39,11 @@
 				<td>${orderlist.quantity}개</td>
 				<td>${orderlist.price}</td>
 				<td>${orderlist.Delivery_status}</td>
-				<td><a href="javascript:;" class="btn btn-outline-secondary"
-					onclick="registReview();">제품 리뷰</a></td>
+				
 				<br />
 			</c:forEach>
+			<a href="javascript:;" class="btn btn-outline-secondary"
+					onclick="registReview();">리뷰 작성</a>
 		</tbody>
 	</table>
 

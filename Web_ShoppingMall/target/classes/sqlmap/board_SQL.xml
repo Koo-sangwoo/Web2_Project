@@ -40,7 +40,7 @@
 		delete from board where cusname = #{cusname}
 	</delete>
 
-	<select id="regist_review">
+	<select id="regist_review" parameterType="hashMap" resultType="hashMap">
 		select memberId,productId,filename,pname from order_list where memberId = "seung";
 	</select>
 	

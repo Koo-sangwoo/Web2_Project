@@ -2,15 +2,50 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
-	<select id = "listAll" parameterType="String" resultType="hashMap">
-		select * from product
+	<select id="listAll" parameterType="String" resultType="hashMap">
+		select *
+		from product
 	</select>
-	
+
 	<select id="list" parameterType="String" resultType="hashMap">
-		select * from product where category = #{category}
+		select *
+		from product where category = #{category}
 	</select>
 
 	<select id="detail" parameterType="String" resultType="hashMap">
-		select * from product where productId = #{productId}
+		select *
+		from product where productId = #{productId}
 	</select>
+	<select id="search" parameterType="String" resultType="hashMap">
+		select *
+		from product
+		<if test="search != null and search != ''">
+			where
+			pname like concat('%',trim(#{search}),'%')
+		</if>
+	</select>
+
+	<select id="searchdetail" parameterType="String"
+		resultType="hashMap">
+		select *
+		from product
+		<choose>
+			<when test="search != null and search != ''">
+				where
+				category = #{category}
+			</when>
+			<when test="category != null and category !=''">
+				where
+				pname like concat('%',trim(#{search}),'%')
+			</when>
+			<otherwise>
+				where
+				pname like concat('%',trim(#{search}),'%') and
+				category = #{category}
+			</otherwise>
+		</choose>
+
+
+	</select>
+
 </mapper>

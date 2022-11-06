@@ -40,8 +40,10 @@ public class BoardrController {
 	}
 	
 	@RequestMapping(value = "/registReview", method = RequestMethod.GET)
-	public ModelAndView insertOrder(@ModelAttribute OrderVO vo) {
-		ModelAndView mav = new ModelAndView("/registReview");
+	public ModelAndView insertOrder(@ModelAttribute OrderVO vo,@RequestParam Map<String,Object> map) {
+		ModelAndView mav = new ModelAndView("/order/registReview");
+		mav.addObject("regist_info",service.regist_review(map));
+		
 		return mav;
 		
 	}

@@ -46,11 +46,11 @@ public class KaKaoController {
 		return readyResponse; // 클라이언트에 보냄.(tid,next_redirect_pc_url이 담겨있음.)
 	}
 
-	@RequestMapping(value = "order/pay/completed")
+	@RequestMapping(value = "/order/pay/completed")
 	public ModelAndView completed(@RequestParam(defaultValue = "1") String num, Locale locale, Model model,@ModelAttribute OrderVO vo) {
 		System.out.println("결제 승인");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/order/pay/completed");
+		mav.setViewName("/order/pay/completed");
 		return mav;
 	}
 

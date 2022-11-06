@@ -24,6 +24,10 @@
 	<insert id="insertOrder" parameterType="hashmap">
 		insert into cart(productId,quantity,memberId,size) values(#{productId},#{quantity},#{memberId},#{size})
 	</insert>
+	
+	<insert id="completeOrder">
+	insert into order_list values(#{memberId},#{productId},#{quantity},#{price},"1","배송완료",#{filename},#{pname});
+	</insert>
 	<!-- 
 	<insert id="inOrderList">
 		insert into order_list(memberId,ProductId,quantity,price,Delivery_status,filename,pname) 

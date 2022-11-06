@@ -30,7 +30,7 @@ public class ProductController {
 		return mav;
 	}
 	@RequestMapping(value="/product", method = RequestMethod.GET)
-	public ModelAndView productList(@RequestParam(defaultValue = "pants") String category) {
+	public ModelAndView productList(@RequestParam String category) {
 		List<ProductVO> lists = service.productLists(category);
 		ModelAndView mav = new ModelAndView("product/productList");
 		mav.addObject("productlists",lists);
@@ -42,6 +42,22 @@ public class ProductController {
 		List<ProductVO> lists = service.productDetail(productId);
 		ModelAndView mav = new ModelAndView("product/productDetail");
 		mav.addObject("productdetail",lists);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/product/search",method = RequestMethod.GET)
+	public ModelAndView productSearch(@RequestParam String search) {
+		List<ProductVO> searchlists = service.productSearch(search);
+		ModelAndView mav = new ModelAndView("product/productSearch");
+		mav.addObject("productlists",searchlists);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/product/searchdetail",method = RequestMethod.GET)
+	public ModelAndView productSearch(@RequestParam Map<String, Object> map) {
+		List<ProductVO> searchlists = service.productSearchDetail(map);
+		ModelAndView mav = new ModelAndView("product/productSearch");
+		mav.addObject("productlists",searchlists);
 		return mav;
 	}
 
