@@ -44,7 +44,7 @@
 				<p>
 					<a href="/product/detail?productId=${data.productId}"><img
 						style="width: 305px; margin-right: 20px;" class="img-thumbnail"
-						alt="" src="../resources/images/${data.filenamemember}"
+						alt="" src="../resources/images/${data.filename}"
 						style="width: 100%"> </a>
 				</p>
 				<p>상품이름: ${data.pname}</p>

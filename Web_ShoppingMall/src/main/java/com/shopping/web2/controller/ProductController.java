@@ -30,7 +30,7 @@ public class ProductController {
 		return mav;
 	}
 	@RequestMapping(value="/product", method = RequestMethod.GET)
-	public ModelAndView productList(@RequestParam(defaultValue = "pants") String category) {
+	public ModelAndView productList(@RequestParam String category) {
 		List<ProductVO> lists = service.productLists(category);
 		ModelAndView mav = new ModelAndView("product/productList");
 		mav.addObject("productlists",lists);
