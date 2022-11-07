@@ -7,7 +7,8 @@
 <title>회원목록</title>
 </head>
 <body>
-<form method="post">
+	<jsp:include page="../menu.jsp" />
+<form name="list" method="post">
 	<input type="text" placeholder="회원명을 적어주세요." name="search">
 	<input type="submit" value="검색">
 </form>

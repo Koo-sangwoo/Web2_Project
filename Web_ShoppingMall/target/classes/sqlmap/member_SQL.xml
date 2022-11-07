@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="member"></mapper>
+<mapper namespace="member">
+	<insert id="create" parameterType="hashMap">
+	insert into member(memberId, password, name, address, phonenumber, email)
+	values(#{memberId}, #{password}, #{name}, #{address}, #{phonenumber}, #{email})
+	</insert>
+	
+	<select id="login" parameterType="hashMap" resultType="hashMap">
+	 select * from member 
+	 where memberId = #{memberId}
+	 and password = #{password}
+	</select>
+	
+	<select id="selectDetail" parameterType="hashMap" resultType="hashMap">
+	select 
+		memberId, name, address, phonenumber, email
+	from member
+	where memberId = #{memberId}
+	</select>
+	
+	<update id="update" parameterType="hashMap">
+      update member set password = #{password}, name = #{name} , address = #{address},
+      phonenumber = #{phonenumber}, email = #{email}
+      where memberId = #{memberId}	
+   </update>
+   
+   <delete id="delete" parameterType="hashMap">
+   delete from member where memberId = #{memberId}
+   </delete>
+   
+     <select id="list" parameterType="hashMap" resultType="hashMap">
+      select * from member
+      <if test="search != null and search != ''" >
+         where
+            name like concat('%',trim#{search},'%') or id like concat('%',trim#{search},'%')
+      </if>
+   </select>
+   
+</mapper>
