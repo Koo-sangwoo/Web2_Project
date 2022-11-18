@@ -44,15 +44,16 @@ public class MemberController {
 			ModelAndView mav = new ModelAndView();
 			boolean isCreated = service.create(map);
 			if(isCreated) {
-				System.out.println("success");
+				mav.addObject("msg", "회원가입을 축하합니다.");
 				mav.setViewName("redirect:/");
 			}else {
-				System.out.println("fail");
+				mav.addObject("msg", "회원가입 실패. 다시 시도해주세요.");
 				mav.setViewName("redirect:/join");
 			}
 			return mav;
 		} catch (DuplicateKeyException e) {
-				ModelAndView mav = new ModelAndView("/member/join_fail");	
+				ModelAndView mav = new ModelAndView("/member/join_fail");
+				mav.addObject("msg", "아이디가 중복되었습니다.");
 				return mav;
 			}
 	}
@@ -68,12 +69,13 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView("member/login");
 		Map<String, Object> result = service.loginCheck(map);
 			if (result != null) {
-				mav.setViewName("redirect:/");
 				session.setAttribute("member", result);
+				mav.setViewName("redirect:/");
 			} else {
 				session.setAttribute("member", null);
-				mav.addObject("msg", false);
-				mav.setViewName("redirect:/login"); 		
+				mav.addObject("msg", "로그인 실패");
+				mav.addObject("url", "reidrect");
+//				mav.setViewName("redirect:/login"); 	
 			}
 			return mav;
 	}
@@ -81,7 +83,6 @@ public class MemberController {
 	@RequestMapping(value = "/logout")
 	public ModelAndView logout(HttpSession session, ModelAndView mav) {
 			service.logout(session);
-			mav.addObject("message", "logout"); 
 			mav.setViewName("redirect:/"); 
 			return mav;
 	}

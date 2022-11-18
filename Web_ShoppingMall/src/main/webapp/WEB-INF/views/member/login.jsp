@@ -7,6 +7,7 @@
 <title>로그인</title>
 </head>
 <body>
+
 	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
@@ -31,9 +32,7 @@
 							<input type="submit" class="btn btn-primary " value="로그인">
 						</div>
 					</div>
-					<c:if test="${msg == false}">
-						<p style="color: #f00;">로그인에 실패했습니다.</p>
-					</c:if>
+					
 			</form>
 		</section>
 	</div>

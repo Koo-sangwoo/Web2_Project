@@ -1,16 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>È¸¿ø°¡ÀÔ ½ÇÆĞ</title>
+<meta charset="UTF-8">
+<title>error!</title>
 </head>
 <body>
-<h1>¾ÆÀÌµğ°¡ Áßº¹µÇ¾ú½À´Ï´Ù</h1>
+	<script type="text/javascript">
+		var message="${msg}";
+		alert(message);
+		location.href = "/join?";
+	</script>
+
+<!--  
+<h1>ì•„ì´ë””ê°€ ì¤‘ë³µë˜ì—ˆìŠµë‹ˆë‹¤.</h1>
 	<p>
-		<a href="/join">È¸¿ø°¡ÀÔ</a>
+		<a href="/join">íšŒì›ê°€ì…</a>
 	</p>
+-->
 
 </body>
 </html>
