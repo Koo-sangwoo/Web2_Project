@@ -1,6 +1,7 @@
 package com.shopping.web2.controller;
 
 import java.lang.reflect.Member;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,10 +41,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public ModelAndView create(@RequestParam Map<String,Object> map) {
+	public ModelAndView create(@RequestParam Map<String,Object> map, @ModelAttribute MemberVO vo) throws NoSuchAlgorithmException {
+		SHA256 sha256 = new SHA256();
+		String psw = sha256.encrypt(vo.getPassword());
+		vo.setPassword(psw);
 		try {
 			ModelAndView mav = new ModelAndView();
-			boolean isCreated = service.create(map);
+			boolean isCreated = service.create(vo);
 			if(isCreated) {
 				mav.addObject("msg", "회원가입을 축하합니다.");
 				mav.setViewName("redirect:/");
@@ -65,10 +69,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session,@ModelAttribute MemberVO vo)
+	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session,@ModelAttribute MemberVO vo) throws NoSuchAlgorithmException
 	{
 		ModelAndView mav = new ModelAndView("member/login");
-		Map<String, Object> result = service.loginCheck(map);
+		SHA256 sha256 = new SHA256();
+		String psw = sha256.encrypt(vo.getPassword());
+		vo.setPassword(psw);
+		Map<String, Object> result = service.loginCheck(vo);
 			if (result != null) {
 				session.setAttribute("member", result);
 				String memberid = vo.getMemberId();
