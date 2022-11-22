@@ -83,7 +83,7 @@ public class MemberController {
 			} else {
 				session.setAttribute("member", null);
 				mav.addObject("msg", "로그인 실패");
-				mav.addObject("url", "reidrect");
+				mav.addObject("url", "redirect");
 //				mav.setViewName("redirect:/login"); 	
 			}
 			return mav;
@@ -119,7 +119,7 @@ public class MemberController {
 	@RequestMapping(value = "/update",method = RequestMethod.POST)
 	public ModelAndView updatePost(@RequestParam Map<String,Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		map.put("memberId", map.get("id")); //id값을 memberId로 돌림
+//		map.put("memberId", map.get("id")); //id값을 memberId로 돌림
 		session.setAttribute("member", map);
 			service.update(map);
 			mav.addObject("msg", "변경되었습니다.");
@@ -127,13 +127,13 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/memberList")
-	public ModelAndView list(@RequestParam Map<String,Object> map, HttpSession session) {
-		ModelAndView mav = new ModelAndView("/member/memberList");
-		session.getAttribute("memberId");
-		mav.addObject("memberlists", service.list(map));
-		return mav;
-	}
+//	@RequestMapping(value = "/memberList")
+//	public ModelAndView list(@RequestParam Map<String,Object> map, HttpSession session) {
+//		ModelAndView mav = new ModelAndView("/member/memberList");
+//		session.getAttribute("memberId");
+//		mav.addObject("memberlists", service.list(map));
+//		return mav;
+//	}
 	
 	@RequestMapping(value = "/delete",method = RequestMethod.POST)
 		public ModelAndView delete(@RequestParam Map<String,Object> map, HttpSession session) {

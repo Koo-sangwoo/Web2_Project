@@ -18,7 +18,7 @@
 	<p>이메일 : ${member.email}</p>
 
 	<p>
-		<a href="update?id=${member.memberId}">수정</a>
+		<a href="update?memberId=${member.memberId}">수정</a>
 	</p>
 
 	<form action="/delete" method="post">
@@ -28,7 +28,9 @@
 	<!-- 관리자용 -->
 	<c:if test="${member.verify==1}">
 	<p>
-		<a href="/memberList">회원목록</a>
+		<a href="/?">상품 추가</a>
+		<a href="/?">상품 수정</a>
+		<a href="/?">상품 삭제</a>
 	</p>
 	</c:if>
 	
