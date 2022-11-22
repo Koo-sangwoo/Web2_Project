@@ -13,15 +13,18 @@
 </head>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
+	<%
+	String member_id = request.getParameter("memberId");
+	%>
 	<script type="text/javascript">
-	function addCart() {
-		document.items.action="/addCart";
-		document.items.submit();
-	}
-	function orders() {
-		document.items.action="/insertOrder";
-		document.items.submit();
-	}
+		function addCart() {
+			document.items.action = "/addCart";
+			document.items.submit();
+		}
+		function orders() {
+			document.items.action = "/insertOrder";
+			document.items.submit();
+		}
 	</script>
 	<div class="container">
 		<div class="row">
@@ -44,20 +47,21 @@
 					<hr>
 					<form method="get" name="items">
 						<input type="hidden" name="productId" value="${data.productId}">
-						<input type="hidden" name="memberId" value="asdf">
-
-						사이즈 <select class="form-select"
-							aria-label="Default select example" name="size">
+						<input type="hidden" name="memberId" value="<%=member_id%>"> 사이즈 <select
+							class="form-select" aria-label="Default select example"
+							name="size">
 
 							<option value="S">S</option>
 							<option value="M">M</option>
 							<option value="L">L</option>
 							<option value="XL">XL</option>
 						</select> <span class="offset-md-6">수량 <input type="number"
-							style="width: 41.33px; height: 24.67px;" name="quantity" value="1"></span>
+							style="width: 41.33px; height: 24.67px;" name="quantity"
+							value="1"></span>
 						<hr>
-						<br> <a href="javascript:;" onclick="orders();" class="btn btn-primary">바로구매</a> 
-						<a href="javascript:;" onclick="addCart();" class="btn btn-primary">장바구니</a>
+						<br> <a href="javascript:;" onclick="orders();"
+							class="btn btn-primary">바로구매</a> <a href="javascript:;"
+							onclick="addCart();" class="btn btn-primary">장바구니</a>
 					</form>
 
 

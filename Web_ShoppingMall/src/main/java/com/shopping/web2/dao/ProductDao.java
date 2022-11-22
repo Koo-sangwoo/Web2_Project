@@ -23,10 +23,6 @@ public class ProductDao {
 		return sqltemplate.selectList("product.list",category);
 	}
 	
-	public List<ProductVO> detail(String productId){
-		return sqltemplate.selectList("product.detail",productId);
-	}
-
 	public List<ProductVO> searchlists(String search) {
 		// TODO Auto-generated method stub
 		return sqltemplate.selectList("product.search",search);
@@ -34,6 +30,11 @@ public class ProductDao {
 
 	public List<ProductVO> productsearch(Map<String, Object> map) {
 		return sqltemplate.selectList("product.searchdetail",map);
+	}
+
+	public List<ProductVO> detail(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqltemplate.selectList("product.detail",map);
 	}
 	
 	

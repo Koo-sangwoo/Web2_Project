@@ -38,18 +38,18 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/cartUpdate", method = RequestMethod.GET)
-	public ModelAndView cartUpdate(@RequestParam Map<String, Object> map) {
+	public ModelAndView cartUpdate(@RequestParam Map<String, Object> map,@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
 		service.update(map);
-		mav.setViewName("redirect:/cart?memberId=asdf");
+		mav.setViewName("redirect:/cart?memberId="+vo.getMemberId());
 		return mav;
 	}
 
 	@RequestMapping(value = "/cartDelete", method = RequestMethod.GET)
-	public ModelAndView cartDelete(@RequestParam String cartId) {
+	public ModelAndView cartDelete(@RequestParam String cartId,@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
 		service.delete(cartId);
-		mav.setViewName("redirect:/cart?memberId=asdf");
+		mav.setViewName("redirect:/cart?memberId="+vo.getMemberId());
 		return mav;
 	}
 
@@ -58,9 +58,9 @@ public class CartController {
 		ModelAndView mav = new ModelAndView();
 		boolean isUpdateSize = service.updateSize(map);
 		if (isUpdateSize) {
-			mav.addObject("msg", "수정되었습니다.");
+			mav.addObject("msg", "�닔�젙�릺�뿀�뒿�땲�떎.");
 		} else {
-			mav.addObject("msg", "해당 상품이 이미 장바구니에 있습니다.");
+			mav.addObject("msg", "�빐�떦 �긽�뭹�씠 �씠誘� �옣諛붽뎄�땲�뿉 �엳�뒿�땲�떎.");
 		}
 		mav.setViewName("cart/cartUpdate");
 
@@ -79,21 +79,22 @@ public class CartController {
 	@RequestMapping(value = "/addCart", method = RequestMethod.GET)
 	public ModelAndView addCart(@ModelAttribute CartVO vo, @RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
+		String memberId = vo.getMemberId();
 		int count = service.countCart(vo.getProductId(), vo.getMemberId(), vo.getSize());
 		if (count == 0)
 			service.insertCart(map);
 		else
 			service.updateCart(map);
-		mav.setViewName("redirect:/cart?memberId=asdf");
+		mav.setViewName("redirect:/cart?memberId=" + memberId);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/orderPay", method = RequestMethod.GET)
 	public ModelAndView orderPay(@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/order?memberId="+vo.getMemberId());
+		mav.setViewName("redirect:/order?memberId=" + vo.getMemberId());
 		return mav;
-		
+
 	}
 
 }

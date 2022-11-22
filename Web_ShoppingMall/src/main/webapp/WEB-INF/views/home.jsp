@@ -69,50 +69,67 @@
 </head>
 <body>
 	<jsp:include page="menu.jsp"></jsp:include>
-	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/resources/images/winter.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block ">
-        <h3 class="fw-bold font-noto">오늘 날씨에 맞는 옷차림을 골라보세요!</h3>
-        <p class="font-noto">날씨별 옷차림 추천 기능을 제공합니다</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/resources/images/jacket.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h3 class="fw-bold font-noto">2022 F/W 신상 입고!</h3>
-        <p class="font-noto">오늘뭐입지와 함께 새 옷 장만하세요</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/resources/images/travel.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h3 class="fw-bold font-noto">여행가기 전 쇼핑은 오늘뭐입지에서!</h3>
-        <p class="font-noto">다양한 스타일의 옷을 쇼핑할 수 있습니다</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" style="border-color: transparent; background-color: transparent;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  <button class="carousel-control-next" style="border-color: transparent; background-color: transparent;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
-</div>
-			<div class="row" align="center">
-				<c:forEach items="${productlists}" var="data">
-					<div class="col-md-4">
-						<p>
-							<a href="/product/detail?productId=${data.productId}"><img
-								style="width: 300px; height: 300px;" class="img-thumbnail"
-								alt="" src="./resources/images/${data.filename}"> </a>
-						</p>
-						<p style="font-weight : bold">${data.pname}</p>
-						<hr style="width: 300px">
-						<p>${data.price}원
-					</div>
-				</c:forEach>
+	<%
+	String member_id = request.getParameter("memberId");
+	%>
+	<div id="carouselExampleCaptions" class="carousel slide"
+		data-bs-ride="false">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="/resources/images/winter.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block ">
+					<h3 class="fw-bold font-noto">오늘 날씨에 맞는 옷차림을 골라보세요!</h3>
+					<p class="font-noto">날씨별 옷차림 추천 기능을 제공합니다</p>
+				</div>
 			</div>
+			<div class="carousel-item">
+				<img src="/resources/images/jacket.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h3 class="fw-bold font-noto">2022 F/W 신상 입고!</h3>
+					<p class="font-noto">오늘뭐입지와 함께 새 옷 장만하세요</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/resources/images/travel.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h3 class="fw-bold font-noto">여행가기 전 쇼핑은 오늘뭐입지에서!</h3>
+					<p class="font-noto">다양한 스타일의 옷을 쇼핑할 수 있습니다</p>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev"
+			style="border-color: transparent; background-color: transparent;"
+			type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		</button>
+		<button class="carousel-control-next"
+			style="border-color: transparent; background-color: transparent;"
+			type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		</button>
+	</div>
+	<div class="row" align="center">
+		<c:forEach items="${productlists}" var="data">
+			<div class="col-md-4">
+				<p>
+					<c:url value="/product/detail" var="url">
+						<c:param name="memberId" value="<%=member_id%>"></c:param>
+						<c:param name="productId" value="${data.productId}"></c:param>
+					</c:url>
+					<a href="${url}"><img style="width: 300px; height: 300px;"
+						class="img-thumbnail" alt=""
+						src="./resources/images/${data.filename}"> </a>
+				</p>
+				<p style="font-weight: bold">${data.pname}</p>
+				<hr style="width: 300px">
+				<p>${data.price}원
+			</div>
+		</c:forEach>
+	</div>
 </body>
 </html>

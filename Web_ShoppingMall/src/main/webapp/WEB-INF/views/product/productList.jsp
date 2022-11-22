@@ -12,17 +12,26 @@
 </head>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
+	<%
+	String member_id = request.getParameter("memberId");
+	%>
 
 	<h1>상품목록</h1>
 	<div class="row" align="center">
 		<c:forEach items="${productlists}" var="data">
 			<div class="col-md-4">
 				<p>
-					<a href="/product/detail?productId=${data.productId}"><img
+					<c:url value="/product/detail" var="url">
+						<c:param name="memberId" value="<%=member_id%>"></c:param>
+						<c:param name="productId" value="${data.productId}"></c:param>
+					</c:url>
+					<a href="${url}"><img
 						style="width: 305px; margin-right: 20px;" class="img-thumbnail"
 						alt="" src="./resources/images/${data.filename}"
-						style="width: 100%"> </a>
+						style="width: 100%">
+					</a>
 				</p>
+				<p><%=member_id%></p>
 				<p>상품이름: ${data.pname}</p>
 				<p>${data.price}
 			</div>

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,13 +65,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session)
+	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session,@ModelAttribute MemberVO vo)
 	{
 		ModelAndView mav = new ModelAndView("member/login");
 		Map<String, Object> result = service.loginCheck(map);
 			if (result != null) {
 				session.setAttribute("member", result);
-				mav.setViewName("redirect:/");
+				String memberid = vo.getMemberId();
+				mav.setViewName("redirect:/?memberId="+memberid);
 			} else {
 				session.setAttribute("member", null);
 				mav.addObject("msg", "로그인 실패");

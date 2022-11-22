@@ -15,7 +15,7 @@ function updateCart(cartId) {
 	var quantity= document.getElementById(cartId+"quantity").value;
 		if (quantity < 1) {
 		alert("1 이상의 숫자를 입력해주세요.");
-		location.href = "/cart?memberId=asdf";
+		location.href = "/cart?memberId=";
 		} else {
 		location.href = "/cartUpdate?quantity="+quantity+"&cartId="+cartId;
 		}
@@ -26,62 +26,70 @@ function orderPay() {
 </script>
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
 <body>
+	<%
+	String member_id = request.getParameter("memberId");
+	%>
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<br><br>
+	<br>
+	<br>
 
 	<div class="container bordered">
-		<h5 class="font-noto" style="font-weight: bold;">장바구니</h5><br><br>
-	<table class="table font-noto">
-		<thead>
-			<tr class="table-light">
-				<th scope="col" style="text-align: center;">#</th>
-				<th scope="col" style="text-align: center;">상품</th>
-				<th scope="col" style="text-align: center;">상품명</th>
-				<th scope="col" style="text-align: center;">사이즈</th>
-				<th scope="col" style="text-align: center;">수량</th>
-				<th scope="col" style="text-align: center;">가격</th>
-				<th scope="col" style="text-align: center;">삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-
-			<c:forEach items="${cartlists}" var="data" varStatus="status">
-				<tr>
-					<td style="vertical-align: middle; text-align: center;">${status.count}</td>
-					<td style="vertical-align: middle; text-align: center;"><img
-						alt="" src="./resources/images/${data.filename}"
-						style="width: 100px; height: 100px"></td>
-					<td style="vertical-align: middle; text-align: center;">${data.pname}</td>
-
-					<td style="vertical-align: middle; text-align: center;">
-						<form action="/cartSizeUpdate" method="post"
-							name="updateSize${data.cartId}">
-							<select name="size">
-								<option selected>${data.size}</option>
-								<option>S</option>
-								<option>M</option>
-								<option>L</option>
-								<option>XL</option>
-							</select> <input type="hidden" name="cartId" value="${data.cartId}">
-							<input type="submit" class="btn btn-outline-secondary" value="수정">
-						</form>
-					</td>
-					<td style="vertical-align: middle; text-align: center;"><input
-						type="number" id="${data.cartId}quantity"
-						style="width: 41.33px; height: 24.67px;" value="${data.quantity}">
-						<a href="#" class="btn btn-outline-secondary"
-						onclick="updateCart(${data.cartId})">수정</a></td>
-					<td style="vertical-align: middle; text-align: center;">${data.totalprice}</td>
-					<td style="vertical-align: middle; text-align: center;"><a
-						href="#" class="btn btn-outline-secondary"
-						onclick="deleteCarts(${data.cartId})">삭제</a></td>
+		<h5 class="font-noto" style="font-weight: bold;">장바구니</h5>
+		<br>
+		<br>
+		<table class="table font-noto">
+			<thead>
+				<tr class="table-light">
+					<th scope="col" style="text-align: center;">#</th>
+					<th scope="col" style="text-align: center;">상품</th>
+					<th scope="col" style="text-align: center;">상품명</th>
+					<th scope="col" style="text-align: center;">사이즈</th>
+					<th scope="col" style="text-align: center;">수량</th>
+					<th scope="col" style="text-align: center;">가격</th>
+					<th scope="col" style="text-align: center;">삭제</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-<<<<<<< HEAD
-	<a href="javascript:;" class="btn btn-outline-secondary"
-	onclick="orderPay();">구매</a>
+			</thead>
+			<tbody>
+
+				<c:forEach items="${cartlists}" var="data" varStatus="status">
+					<tr>
+						<td style="vertical-align: middle; text-align: center;">${status.count}</td>
+						<td style="vertical-align: middle; text-align: center;"><img
+							alt="" src="./resources/images/${data.filename}"
+							style="width: 100px; height: 100px"></td>
+						<td style="vertical-align: middle; text-align: center;">${data.pname}</td>
+
+						<td style="vertical-align: middle; text-align: center;">
+							<form action="/cartSizeUpdate" method="post"
+								name="updateSize${data.cartId}">
+								<select name="size">
+									<option selected>${data.size}</option>
+									<option>S</option>
+									<option>M</option>
+									<option>L</option>
+									<option>XL</option>
+								</select> <input type="hidden" name="cartId" value="${data.cartId}">
+								<input type="hidden" name="memberId" value="<%=member_id%>">
+								<input type="submit" class="btn btn-outline-secondary"
+									value="수정">
+							</form>
+						</td>
+						<td style="vertical-align: middle; text-align: center;"><input
+							type="number" id="${data.cartId}quantity"
+							style="width: 41.33px; height: 24.67px;" value="${data.quantity}">
+							<input type="hidden" name="memberId" value="<%=member_id%>">
+							<a href="#" class="btn btn-outline-secondary"
+							onclick="updateCart(${data.cartId})">수정</a></td>
+						<td style="vertical-align: middle; text-align: center;">${data.totalprice}</td>
+						<td style="vertical-align: middle; text-align: center;"><a
+							href="#" class="btn btn-outline-secondary"
+							onclick="deleteCarts(${data.cartId})">삭제</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<<<<<<< HEAD <a href="javascript:;" class="btn btn-outline-secondary"
+			onclick="orderPay();">구매</a>
 
 	</div>
 

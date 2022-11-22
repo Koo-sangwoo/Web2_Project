@@ -21,10 +21,6 @@ public class ProductServiceImpl implements ProductService {
 		return dao.list(category);
 	}
 
-	@Override
-	public List<ProductVO> productDetail(String productId) {
-		return dao.detail(productId);
-	}
 
 	@Override
 	public List<ProductVO> productListAll() {
@@ -41,6 +37,13 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> productSearchDetail(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return dao.productsearch(map);
+	}
+
+
+	@Override
+	public List<ProductVO> productDetail(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.detail(map);
 	}
 
 
