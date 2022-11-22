@@ -31,5 +31,10 @@
 		<a href="/memberList">회원목록</a>
 	</p>
 	</c:if>
+	
+	<form action="/cart?memberId=" method="get">
+		<input type="hidden" name="memberId" value="${member.memberId}"> <input
+			type="submit" value="장바구니">
+	</form>
 </body>
 </html>
