@@ -44,7 +44,7 @@
 <!--   </nav> -->
 <header class="py-3 border-bottom">
 	<div class="container d-flex flex-wrap justify-content-center">
-		<a href="/"
+		<a href="/?memberId=${member.memberId}"
 			class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none font-gamja nav-link link-light">
 			<svg class="bi me-2" width="40" height="130"></svg>
 			<h1 class="fs-4 " style="font-size: 65px; font-weight: 500;">오늘뭐입지</h1>
