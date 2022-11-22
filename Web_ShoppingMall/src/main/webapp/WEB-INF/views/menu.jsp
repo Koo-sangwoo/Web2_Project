@@ -55,15 +55,15 @@
 	<li class="nav-item"><a class="nav-link" style="color: black;"
 		aria-current="page" href="/weather">오늘뭐입지?</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
-		aria-current="page" href="/product?category=pants">pants</a></li>
+		aria-current="page" href="/product?category=pants&&memberId=${member.memberId}">pants</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
-		aria-current="page" href="/product?category=outer">outer</a></li>
+		aria-current="page" href="/product?category=outer&&memberId=${member.memberId}">outer</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
-		aria-current="page" href="/product?category=Tshirt">T-Shirt</a></li>
+		aria-current="page" href="/product?category=Tshirt&&memberId=${member.memberId}">T-Shirt</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
-		aria-current="page" href="/product?category=shirt">shirt</a></li>
+		aria-current="page" href="/product?category=shirt&&memberId=${member.memberId}">shirt</a></li>
 	<li class="nav-item"><a class="nav-link" style="color: black;"
-		aria-current="page" href="/product?category=neat">neat</a></li>
+		aria-current="page" href="/product?category=neat&&memberId=${member.memberId}">neat</a></li>
 </ul>
 
 </html>

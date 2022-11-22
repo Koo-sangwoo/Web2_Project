@@ -6,8 +6,6 @@ import java.util.Map;
 import com.shopping.web2.vo.ProductVO;
 
 public interface ProductService {
-	List<ProductVO> productLists(String category);
-
 
 	List<ProductVO> productListAll();
 
@@ -16,4 +14,7 @@ public interface ProductService {
 	List<ProductVO> productSearchDetail(Map<String, Object> map);
 
 	List<ProductVO> productDetail(Map<String, Object> map);
+
+
+	List<ProductVO> productLists(Map<String, Object> map);
 }
