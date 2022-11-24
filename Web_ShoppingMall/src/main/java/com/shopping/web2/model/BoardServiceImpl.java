@@ -26,4 +26,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.regist_review(map);
 	}
 
+	@Override
+	public void post_review(BoardVO vo) {
+		dao.post_review(vo);
+	}
+
 }

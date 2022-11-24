@@ -34,7 +34,7 @@
 		<ul class="pagination">
 			<c:forEach begin="1" end="5" var="i">
 				<li class="page-item"><a class="page-link"
-					href="/board/lists?num=${i}">${i}</a></li>
+					href="/board?num=${i}">${i}</a></li>
 			</c:forEach>
 		</ul>
 	</nav>

@@ -19,8 +19,8 @@ public class ProductDao {
 		return sqltemplate.selectList("product.listAll");
 	}
 	
-	public List<ProductVO> list(String category){
-		return sqltemplate.selectList("product.list",category);
+	public List<ProductVO> list(Map<String, Object> map){
+		return sqltemplate.selectList("product.list",map);
 	}
 	
 	public List<ProductVO> searchlists(String search) {

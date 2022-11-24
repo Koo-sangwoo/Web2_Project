@@ -8,7 +8,7 @@
 <title>주문내역</title>
 <script type="text/javascript">
 	function registReview() {
-		window.location = "http://localhost:8080/registReview";
+		window.location = "http://localhost:8080/createReview";
 	}
 </script>
 </head>
@@ -39,6 +39,7 @@
 				<td>${orderlist.quantity}개</td>
 				<td>${orderlist.price}</td>
 				<td>${orderlist.Delivery_status}</td>
+				<a href="createReview.jsp">리뷰 작성</a>
 				
 				<br />
 			</c:forEach>

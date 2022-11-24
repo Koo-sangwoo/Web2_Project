@@ -92,6 +92,12 @@ function orderPay() {
 			onclick="orderPay();">구매</a>
 
 	</div>
+	<c:if test="${member.memberId == null}">
+		<script>
+	alert("로그인 후 사용해주세요.");
+	location.href="/login";
+		</script>
+	</c:if>
 
 
 

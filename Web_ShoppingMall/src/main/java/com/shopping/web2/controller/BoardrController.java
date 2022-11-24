@@ -39,14 +39,25 @@ public class BoardrController {
 		return mav; 				
 	}
 	
-	@RequestMapping(value = "/registReview", method = RequestMethod.GET)
-	public ModelAndView insertOrder(@ModelAttribute OrderVO vo,@RequestParam Map<String,Object> map) {
-		ModelAndView mav = new ModelAndView("/order/registReview");
-		mav.addObject("regist_info",service.regist_review(map));
-		
-		return mav;
+	
+	@RequestMapping(value = "/createReview", method = RequestMethod.GET)
+	public ModelAndView createReview(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/order/createReview");
+
+		return mav;// insert 하는 sql문 먼저 작성 후 dao,service를 거치는 부분 만들어 추가할것.
 		
 	}
+	
+	@RequestMapping(value = "/createReview", method = RequestMethod.POST)
+	public ModelAndView postReview(@ModelAttribute BoardVO vo, @RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/order/createReview");
+		service.post_review(vo);
+		return mav;// insert 하는 sql문 먼저 작성 후 dao,service를 거치는 부분 만들어 추가할것.
+		
+	}
+	
 	
 //	@RequestMapping(value = "/memberList", method = RequestMethod.POST)
 //	public ModelAndView memberListData(@RequestParam String search, Locale locale, Model model) {

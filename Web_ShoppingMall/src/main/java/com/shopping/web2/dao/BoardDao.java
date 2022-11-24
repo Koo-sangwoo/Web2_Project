@@ -24,5 +24,9 @@ public class BoardDao {
 	public List<Map<String, Object>> regist_review(Map<String, Object> map){
 		return sqltemplate.selectList("board.regist_review",map);
 	}
+	
+	public void post_review(BoardVO vo) {
+		 sqltemplate.insert("board.post_review", vo);
+	}
 
 }
