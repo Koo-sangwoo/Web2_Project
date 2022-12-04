@@ -21,7 +21,7 @@ function updateCart(cartId) {
 		}
 	}
 function orderPay() {
-	window.location = "http://localhost:8080/orderPay";
+	window.location = "http://localhost:8080/orderPay?member";
 }
 </script>
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
@@ -88,8 +88,12 @@ function orderPay() {
 				</c:forEach>
 			</tbody>
 		</table>
-		<<<<<<< HEAD <a href="javascript:;" class="btn btn-outline-secondary"
-			onclick="orderPay();">구매</a>
+			<c:url value="/orderPay" var="url">
+						<c:param name="memberId" value="<%=member_id%>"></c:param>
+					</c:url>
+			
+			<a href="${url}" class="btn btn-outline-secondary">
+					구매</a>
 
 	</div>
 	<c:if test="${member.memberId == null}">

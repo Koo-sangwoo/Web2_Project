@@ -87,11 +87,13 @@ $(function(){
 						value="${cusinfo.phonenumber}" /><br /></a></td>
 			</tr>
 		</c:forEach>
+		<hr>
 
 		<c:forEach items="${orderinfo}" var="productdata">
 			<td><a>주문 수량 : ${productdata.quantity}<br /></a></td>
 			<td><a>주문 상품 :${productdata.productId}<br /></a></td>
 			<td><a>사이즈 : ${productdata.size}<br /></a></td>
+			<hr>
 		</c:forEach>
 
 		<input type="button" id = "btn-kakao-pay" value="결재요청">

@@ -4,6 +4,8 @@
 
 <meta charset="UTF-8">
 
+<% request.setCharacterEncoding("UTF-8"); %>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
@@ -35,7 +37,7 @@
         <li class="nav-item"><a href="/logout" class="nav-link pl-2 text-dark">로그아웃</a></li>
       </c:if>
 	</ul>
-	<form class="d-flex" action="/product/search">
+	<form class="d-flex" action="/product/search" method="post">
 		<input class="form-control me-2" type="search" placeholder="Search"
 			aria-label="Search" name="search">
 		<button class="btn btn-outline-success" type="submit">Search</button>

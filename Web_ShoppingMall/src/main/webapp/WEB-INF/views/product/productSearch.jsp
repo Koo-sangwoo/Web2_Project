@@ -47,7 +47,7 @@
 						alt="" src="../resources/images/${data.filename}"
 						style="width: 100%"> </a>
 				</p>
-				<p>상품이름: ${data.pname}</p>
+				<p>${data.pname}</p>
 				<p>${data.price}
 			</div>
 		</c:forEach>

@@ -1,7 +1,10 @@
 package com.shopping.web2.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,8 +48,10 @@ public class ProductController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/product/search",method = RequestMethod.GET)
-	public ModelAndView productSearch(@RequestParam String search) {
+	@RequestMapping(value = "/product/search",method = RequestMethod.POST)
+	public ModelAndView productSearch(@RequestParam String search,HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		System.out.println( request.getParameter("search"));
 		List<ProductVO> searchlists = service.productSearch(search);
 		ModelAndView mav = new ModelAndView("product/productSearch");
 		mav.addObject("productlists",searchlists);
