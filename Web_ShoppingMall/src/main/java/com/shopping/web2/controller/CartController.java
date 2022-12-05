@@ -54,7 +54,7 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/cartSizeUpdate", method = RequestMethod.POST)
-	public ModelAndView cartSizeUpdate(@RequestParam Map<String, Object> map) {
+	public ModelAndView cartSizeUpdate(@RequestParam Map<String, Object> map,@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
 		boolean isUpdateSize = service.updateSize(map);
 		if (isUpdateSize) {
@@ -62,7 +62,7 @@ public class CartController {
 		} else {
 			mav.addObject("msg", "�빐�떦 �긽�뭹�씠 �씠誘� �옣諛붽뎄�땲�뿉 �엳�뒿�땲�떎.");
 		}
-		mav.setViewName("cart/cartUpdate");
+		mav.setViewName("redirect:/cartUpdate?memberId="+vo.getMemberId());
 
 		return mav;
 	}

@@ -11,24 +11,21 @@
 <title>장바구니</title>
 </head>
 <script type="text/javascript">
+<%
+String member_id = request.getParameter("memberId");
+%>
 function updateCart(cartId) {
 	var quantity= document.getElementById(cartId+"quantity").value;
 		if (quantity < 1) {
 		alert("1 이상의 숫자를 입력해주세요.");
-		location.href = "/cart?memberId=";
+		location.href = "/cart?memberId=" + "<%=member_id%>";
 		} else {
-		location.href = "/cartUpdate?quantity="+quantity+"&cartId="+cartId;
+		location.href = "/cartUpdate?quantity="+quantity+"&cartId="+cartId+"memberId="+<%=member_id%>;
 		}
 	}
-function orderPay() {
-	window.location = "http://localhost:8080/orderPay?member";
-}
 </script>
 <script type="text/javascript" src="./resources/js/cartValidation.js"></script>
 <body>
-	<%
-	String member_id = request.getParameter("memberId");
-	%>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<br>
 	<br>
