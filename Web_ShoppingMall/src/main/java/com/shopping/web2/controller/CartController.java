@@ -53,16 +53,17 @@ public class CartController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/cartSizeUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/cartSizeUpdate", method = RequestMethod.GET, produces="application/text; charset=utf8")
 	public ModelAndView cartSizeUpdate(@RequestParam Map<String, Object> map,@ModelAttribute CartVO vo) {
 		ModelAndView mav = new ModelAndView();
 		boolean isUpdateSize = service.updateSize(map);
 		if (isUpdateSize) {
-			mav.addObject("msg", "�닔�젙�릺�뿀�뒿�땲�떎.");
+			mav.addObject("msg", "수정되었습니다.");
 		} else {
-			mav.addObject("msg", "�빐�떦 �긽�뭹�씠 �씠誘� �옣諛붽뎄�땲�뿉 �엳�뒿�땲�떎.");
+			mav.addObject("msg", "해당상품이 이미 장바구니에 있습니다.");
 		}
-		mav.setViewName("redirect:/cartUpdate?memberId="+vo.getMemberId());
+		mav.addObject("memberId", vo.getMemberId());
+		mav.setViewName("cart/cartUpdate");
 
 		return mav;
 	}

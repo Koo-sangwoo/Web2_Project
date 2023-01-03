@@ -2,11 +2,12 @@
  * 
  */
 
-	function deleteCarts(cartId) {
+	function deleteCarts(index) {
 		if (confirm("삭제하시겠습니까?")) {
-			location.href = "/cartDelete?cartId="+cartId;
+			document.carts[index].action="/cartDelete";
+			document.carts[index].submit();
 		} else {
-			location.href = "/cart?memberId=asdf";
+			location.reload();
 
 		}
 	}
